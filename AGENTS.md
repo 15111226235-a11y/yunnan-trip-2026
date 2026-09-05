@@ -2,12 +2,14 @@
 
 ## 项目概览
 
-这是一个纯静态的「云南 8 天 7 晚旅行手册」网页，托管在 Cloudflare Workers，`main` 分支推送后自动发布。
+这是一个「云南 8 天 7 晚旅行手册」网页，托管在 Cloudflare Workers，`main` 分支推送后自动发布。前端保持单文件零外部依赖，共享待办由 `worker.mjs` 与 D1 提供。
 
 ## 目录结构
 
 - `yunnan-trip-site/` — Cloudflare Worker / 静态站点项目根目录（`wrangler.jsonc` 所在位置）
-  - `public/index.html` — **真正被部署的唯一页面**，所有内容、样式与脚本都在此单文件内
+  - `public/index.html` — **真正被部署的唯一页面**，所有前端内容、样式与脚本都在此单文件内
+  - `worker.mjs` — 共享待办 API，依赖 D1 `DB` 绑定与 `SYNC_CODE` Secret
+  - `schema.sql` — D1 初始化表，不删除已有记录
   - `index.html` — `public/index.html` 的完全一致副本，当前未参与部署
   - `README.md` — 部署与页面说明
   - `package.json` — 仅含 wrangler 脚本
