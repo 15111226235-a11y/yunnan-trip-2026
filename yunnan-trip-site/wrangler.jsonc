@@ -1,6 +1,14 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "yunnan-8days-trip",
+  "name": "yunnan-trip-2026",
+  "account_id": "a62fdcae0316051bd7b8bf294fda7eee",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "yunnan-trip-todos",
+      "database_id": "c3f98095-3cea-4da0-979c-d8b446e2111d"
+    }
+  ],
   "main": "worker.mjs",
   "compatibility_date": "2026-09-04",
   "assets": {
