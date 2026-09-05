@@ -3,132 +3,596 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#e8eee7">
-<title>云南 8天7晚 · 两个人的旅行手册</title>
+<meta name="theme-color" content="#eef5f0">
+<title>风花雪月行纪｜云南漫游手册</title>
 <style>
-:root{--bg:#f3f0e8;--card:#fffdf7;--ink:#26332d;--muted:#758078;--line:#ddd8cb;--green:#47735e;--green2:#dfe9df;--orange:#b96e45;--night:#20312d;--shadow:0 12px 35px #27372d12}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.7 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}button,a{font:inherit}.wrap{max-width:920px;margin:auto;padding:0 16px 70px}
-.hero{padding:28px 18px 22px;background:linear-gradient(145deg,#dfe9df,#f6f0df);border-bottom:1px solid var(--line)}
-.hero .inner{max-width:920px;margin:auto}.eyebrow{font-size:12px;letter-spacing:.16em;color:var(--green);font-weight:800}.hero h1{font-size:36px;line-height:1.1;margin:7px 0}.hero p{margin:0;color:var(--muted)}
-h2{font-size:23px;margin:34px 2px 14px}h3{margin:0 0 6px;font-size:17px}.section-note{color:var(--muted);font-size:13px;margin:-7px 2px 13px}
-.focus{margin-top:18px;background:var(--card);border:1px solid #ffffffaa;border-radius:24px;padding:20px;box-shadow:var(--shadow)}
-.focus-top{display:flex;justify-content:space-between;gap:10px;align-items:center}.badge{font-size:11px;font-weight:800;color:var(--green);background:var(--green2);padding:5px 9px;border-radius:999px}.tz{font-size:11px;color:var(--muted)}
-.event{font-size:17px;font-weight:800;margin:12px 0 2px}.count{font-variant-numeric:tabular-nums;font-size:30px;font-weight:900;letter-spacing:-1px}.count small{font-size:11px;color:var(--muted);letter-spacing:0;margin-left:2px}.sub{color:var(--muted);font-size:12px}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:17px;box-shadow:0 6px 22px #27372d08}
-.confirm{border-left:4px solid var(--green)}.pending{border-left:4px solid var(--orange)}.mini{font-size:13px;color:var(--muted)}.place{color:var(--green);font-weight:800;text-decoration:none}
-.route{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:12px;overflow:hidden}.route svg{width:100%;height:auto;display:block}.legend{display:flex;gap:9px;flex-wrap:wrap;margin-top:8px;font-size:11px;color:var(--muted)}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:4px}
-.timeline{position:relative}.timeline:before{content:"";position:absolute;left:65px;top:8px;bottom:8px;width:1px;background:var(--line)}.item{display:grid;grid-template-columns:56px 1fr;gap:18px;margin:0 0 10px}.time{font-weight:900;font-variant-numeric:tabular-nums;text-align:right;color:var(--green);padding-top:15px;font-size:13px}.item .card{position:relative}.item .card:before{content:"";position:absolute;left:-22px;top:19px;width:7px;height:7px;border-radius:50%;background:var(--green);border:3px solid var(--bg)}.tag{display:inline-block;background:#edf1eb;color:#4b6656;border-radius:999px;padding:2px 7px;font-size:10px;font-weight:800;margin-right:4px}.must{background:#fff0e8;color:#9b5938}.navbtn{display:inline-block;margin-top:7px;padding:6px 9px;border-radius:9px;background:var(--green);color:white;text-decoration:none;font-size:12px;font-weight:700}.mapbtn{display:block;text-align:center;margin-top:9px;padding:10px;border:1px solid var(--green);border-radius:12px;color:var(--green);text-decoration:none;font-weight:800}
-.todo{margin:0;padding-left:20px}.todo li{padding:8px 0;border-bottom:1px dashed var(--line)}.risk{padding:14px 15px;background:#fff2e9;border-radius:14px;margin-top:10px}.risk b{color:#9a5b3e}
-.sticky{position:sticky;top:0;z-index:10;background:#f3f0e8ee;backdrop-filter:blur(10px);padding:8px 0}.tabs{display:flex;gap:7px;overflow:auto}.tabs a{white-space:nowrap;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 10px;font-size:12px}
-body.night{--bg:#17211e;--card:#202d29;--ink:#eef2ed;--muted:#aab7af;--line:#35443e;--green2:#2c4038;--shadow:0 12px 35px #00000025}
-body.night .hero{background:linear-gradient(145deg,#1d332c,#283229)}
-body.night .sticky{background:#17211eee}
-.daymap{margin-top:12px;border-top:1px dashed var(--line);padding-top:10px}.daymap summary{cursor:pointer;color:var(--green);font-weight:800;font-size:12px}.daymap svg{width:100%;height:auto;margin-top:8px}.daymap .routebtn{display:block;text-align:center;margin-top:8px;padding:9px;border-radius:11px;background:var(--green);color:white;text-decoration:none;font-weight:800;font-size:12px}
-@media(max-width:640px){.grid{grid-template-columns:1fr}.hero h1{font-size:31px}.count{font-size:27px}.timeline:before{left:52px}.item{grid-template-columns:44px 1fr;gap:16px}.item .card:before{left:-20px}}
+:root{
+  --bg:#f5f7f2;
+  --paper:#fffef9;
+  --paper-2:#fbfcf8;
+  --ink:#21332c;
+  --muted:#718078;
+  --line:#dfe7e0;
+  --sage:#648374;
+  --sage-soft:#e7f0e9;
+  --sky:#7da4ad;
+  --sky-soft:#e9f2f4;
+  --sand:#c28a61;
+  --sand-soft:#f7ede5;
+  --violet:#8c7ba7;
+  --rose:#b67a7a;
+  --warning:#9e673d;
+  --warning-bg:#fff6ed;
+  --shadow:0 16px 44px rgba(37,55,46,.07);
+  --shadow-sm:0 8px 24px rgba(37,55,46,.05);
+  --radius-xl:28px;
+  --radius-lg:22px;
+  --radius-md:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 10% 0%,rgba(164,196,181,.18),transparent 25%),
+    radial-gradient(circle at 95% 10%,rgba(211,193,158,.16),transparent 23%),
+    var(--bg);
+  font:15px/1.75 -apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+button,a{font:inherit}
+button{color:inherit}
+svg{display:block}
+.wrap{max-width:980px;margin:0 auto;padding:0 18px 84px}
+
+/* Header */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid rgba(100,131,116,.12)}
+.hero:before,.hero:after{content:"";position:absolute;border-radius:999px;filter:blur(1px);pointer-events:none}
+.hero:before{width:340px;height:340px;background:rgba(154,190,174,.20);right:-120px;top:-180px}
+.hero:after{width:260px;height:260px;background:rgba(224,196,158,.18);left:-120px;bottom:-150px}
+.hero-inner{position:relative;z-index:1;max-width:980px;margin:auto;padding:38px 18px 28px}
+.brandline{display:flex;align-items:center;gap:10px;color:var(--sage);font-size:12px;font-weight:800;letter-spacing:.14em}
+.brandmark{width:34px;height:34px;border-radius:12px;background:rgba(255,255,255,.7);border:1px solid rgba(100,131,116,.16);display:grid;place-items:center;box-shadow:var(--shadow-sm)}
+.brandmark svg{width:20px;height:20px}
+.hero h1{margin:13px 0 9px;font-size:clamp(32px,6vw,50px);line-height:1.08;letter-spacing:-.035em;font-weight:850}
+.hero-sub{margin:0;color:var(--muted);font-size:14px}
+.hero-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.hero-pill{display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.58);border:1px solid rgba(100,131,116,.13);font-size:12px;color:#50635a}
+.hero-pill svg{width:14px;height:14px;color:var(--sage)}
+.focus{margin-top:22px;background:rgba(255,254,249,.85);border:1px solid rgba(255,255,255,.8);border-radius:var(--radius-xl);padding:20px 20px 18px;box-shadow:var(--shadow);backdrop-filter:blur(14px)}
+.focus-top{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:800;color:#48695a;background:var(--sage-soft);padding:5px 9px;border-radius:999px}
+.tz{font-size:11px;color:var(--muted)}
+.event{font-size:17px;font-weight:800;margin:11px 0 0}
+.count{font-variant-numeric:tabular-nums;font-size:31px;font-weight:900;letter-spacing:-1px;margin-top:1px}
+.count small{font-size:11px;color:var(--muted);letter-spacing:0;margin-left:2px;font-weight:700}
+.sub{color:var(--muted);font-size:12px}
+
+/* Nav */
+.sticky{position:sticky;top:0;z-index:20;padding:10px 0;background:linear-gradient(to bottom,rgba(245,247,242,.95),rgba(245,247,242,.83));backdrop-filter:blur(16px)}
+.tabs{display:flex;gap:8px;overflow:auto;scrollbar-width:none;padding:0 1px}
+.tabs::-webkit-scrollbar{display:none}
+.tabs a{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;text-decoration:none;background:rgba(255,254,249,.92);border:1px solid var(--line);border-radius:999px;padding:7px 11px;font-size:12px;color:#41534a;box-shadow:0 4px 14px rgba(37,55,46,.025)}
+.tabs a:hover{border-color:#b9cbbf;background:#fff}
+.tabs svg{width:14px;height:14px;color:var(--sage)}
+
+/* Sections */
+section{scroll-margin-top:66px}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin:38px 2px 14px}
+.section-title-wrap{min-width:0}
+.kicker{font-size:11px;letter-spacing:.15em;color:var(--sage);font-weight:800;text-transform:uppercase;margin-bottom:3px}
+h2{font-size:24px;line-height:1.2;margin:0;letter-spacing:-.02em}
+h3{font-size:17px;line-height:1.4;margin:0 0 7px}
+.section-note{margin:0 2px 14px;color:var(--muted);font-size:13px}
+.section-icon{width:38px;height:38px;border-radius:14px;background:var(--paper);border:1px solid var(--line);display:grid;place-items:center;box-shadow:var(--shadow-sm);flex:0 0 auto}
+.section-icon svg{width:19px;height:19px;color:var(--sage)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.card{background:rgba(255,254,249,.92);border:1px solid var(--line);border-radius:var(--radius-lg);padding:18px;box-shadow:var(--shadow-sm)}
+.card p{margin:7px 0}
+.mini{font-size:12px;color:var(--muted)}
+
+/* Map */
+.overview-map{background:linear-gradient(180deg,#fbfcf8,#f4f7f2);border:1px solid var(--line);border-radius:var(--radius-xl);padding:14px;box-shadow:var(--shadow);overflow:hidden}
+.map-shell{position:relative;border-radius:20px;overflow:hidden;background:linear-gradient(145deg,#edf4ee,#f8f4ea)}
+.map-shell svg{width:100%;height:auto}
+.map-caption{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 4px 0}
+.map-caption-text{font-size:12px;color:var(--muted)}
+.map-link{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--sage);font-size:12px;font-weight:800}
+.map-link svg{width:14px;height:14px}
+.legend{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.legend-item{display:inline-flex;align-items:center;gap:6px;padding:6px 9px;background:var(--paper);border:1px solid var(--line);border-radius:999px;font-size:11px;color:#53645c}
+.legend-line{width:18px;height:4px;border-radius:999px;background:var(--c)}
+.context-city{fill:#77867d;font-size:12px;font-weight:700}
+.route-date{font-size:11px;font-weight:800}
+
+/* Booking cards */
+.booking-card{position:relative;padding-left:64px;min-height:130px}
+.booking-icon{position:absolute;left:18px;top:18px;width:34px;height:34px;border-radius:12px;display:grid;place-items:center}
+.booking-icon.flight{background:var(--sky-soft);color:#567e88}
+.booking-icon.hotel{background:var(--sage-soft);color:#4f7462}
+.booking-icon svg{width:18px;height:18px}
+.booking-title{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.booking-title .date{font-size:12px;color:var(--muted);font-weight:700;white-space:nowrap}
+.route-text{font-size:14px;margin-top:8px}
+.route-time{font-size:21px;font-weight:850;letter-spacing:-.02em}
+.navbtn{display:inline-flex;align-items:center;gap:6px;margin-top:7px;padding:7px 10px;border-radius:11px;background:#edf3ee;color:#4a6b5b;text-decoration:none;font-size:12px;font-weight:800;border:1px solid #d8e5dc}
+.navbtn svg{width:14px;height:14px}
+.risk{padding:15px 16px;background:var(--warning-bg);border:1px solid #f2ddc8;border-radius:16px;margin-top:13px;color:#73543b;font-size:13px}
+.risk b{color:#8e5c35}
+
+/* Timeline */
+.timeline{position:relative}
+.timeline:before{content:"";position:absolute;left:68px;top:12px;bottom:18px;width:1px;background:linear-gradient(var(--line),#c9d7cf,var(--line))}
+.item{display:grid;grid-template-columns:58px 1fr;gap:20px;margin-bottom:12px}
+.time{font-variant-numeric:tabular-nums;text-align:right;padding-top:17px;color:#4d6c5d;font-size:12px;font-weight:800;line-height:1.45}
+.day-card{position:relative}
+.day-card:before{content:"";position:absolute;left:-25px;top:22px;width:8px;height:8px;border-radius:50%;background:var(--paper);border:3px solid var(--sage);box-shadow:0 0 0 4px var(--bg)}
+.day-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.day-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:7px}
+.tag{display:inline-flex;align-items:center;gap:4px;background:#eef3ef;color:#50695c;border-radius:999px;padding:3px 8px;font-size:10px;font-weight:800}
+.tag.must{background:#fff0e8;color:#985d3e}
+.day-summary{margin:7px 0 0;color:#394b42}
+.day-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}
+.map-toggle{appearance:none;border:1px solid #cadbd0;background:#fff;color:#4e715f;border-radius:12px;padding:8px 11px;font-size:12px;font-weight:800;display:inline-flex;align-items:center;gap:7px;cursor:pointer}
+.map-toggle svg{width:15px;height:15px;transition:transform .22s ease}
+.map-toggle[aria-expanded="true"] svg{transform:rotate(180deg)}
+.daymap-panel{display:none;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+.daymap-panel.open{display:block;animation:fadeIn .2s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:none}}
+.amap-card{display:block;text-decoration:none;border:1px solid #d9e4dc;border-radius:16px;overflow:hidden;background:#f7faf7;box-shadow:0 6px 18px rgba(37,55,46,.04)}
+.amap-card-head,.amap-card-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;background:rgba(255,255,255,.75)}
+.amap-brand{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:850;color:#405b4d}
+.amap-brand-mark{width:19px;height:19px;border-radius:6px;background:#3977f6;color:white;display:grid;place-items:center;font-size:11px;font-weight:900}
+.amap-meta{font-size:11px;color:var(--muted)}
+.amap-mini{position:relative;height:145px;background:
+  linear-gradient(26deg,transparent 47%,rgba(110,141,126,.14) 48%,rgba(110,141,126,.14) 50%,transparent 51%) 0 0/90px 70px,
+  linear-gradient(-18deg,transparent 47%,rgba(110,141,126,.10) 48%,rgba(110,141,126,.10) 50%,transparent 51%) 0 0/115px 85px,
+  #eef4ef;
+  overflow:hidden;
+}
+.amap-mini:before,.amap-mini:after{content:"";position:absolute;border:2px solid rgba(255,255,255,.9);border-radius:999px;box-shadow:0 0 0 1px rgba(125,145,135,.12)}
+.amap-mini:before{width:130%;height:60px;left:-18%;top:46px;transform:rotate(-8deg)}
+.amap-mini:after{width:90%;height:45px;right:-20%;top:90px;transform:rotate(13deg)}
+.route-stroke{position:absolute;height:4px;border-radius:999px;background:var(--route-color,#648374);transform-origin:left center;z-index:2;box-shadow:0 0 0 2px rgba(255,255,255,.7)}
+.poi{position:absolute;z-index:3;transform:translate(-50%,-50%);text-align:center}
+.poi-dot{width:14px;height:14px;margin:auto;border-radius:50%;background:var(--route-color,#648374);border:3px solid white;box-shadow:0 2px 7px rgba(37,55,46,.18)}
+.poi-label{margin-top:4px;padding:2px 5px;border-radius:6px;background:rgba(255,255,255,.9);font-size:10px;font-weight:800;color:#43544c;white-space:nowrap;box-shadow:0 2px 8px rgba(37,55,46,.08)}
+.amap-card-foot{font-size:12px;color:#4c6d5c;font-weight:800}
+.amap-card-foot span:last-child{font-size:16px}
+
+/* Todo */
+.todo-card{padding:8px 18px}
+.todo-progress{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 0 10px;border-bottom:1px solid var(--line)}
+.progress-copy{font-size:12px;color:var(--muted)}
+.progress-track{width:120px;height:6px;border-radius:999px;background:#edf1ed;overflow:hidden}
+.progress-bar{height:100%;width:0;background:linear-gradient(90deg,#789786,#a9bdad);border-radius:999px;transition:width .25s ease}
+.todo-list{display:grid;gap:0}
+.todo-item{display:grid;grid-template-columns:26px 1fr;gap:10px;align-items:flex-start;padding:14px 0;border-bottom:1px dashed var(--line);cursor:pointer}
+.todo-item:last-child{border-bottom:0}
+.todo-item input{appearance:none;width:20px;height:20px;margin:2px 0 0;border:1.6px solid #b9c9bf;border-radius:6px;background:white;display:grid;place-content:center;transition:.15s ease;cursor:pointer}
+.todo-item input:before{content:"";width:9px;height:5px;border-left:2px solid white;border-bottom:2px solid white;transform:rotate(-45deg) scale(0);transition:.13s ease;margin-top:-2px}
+.todo-item input:checked{background:var(--sage);border-color:var(--sage)}
+.todo-item input:checked:before{transform:rotate(-45deg) scale(1)}
+.todo-item input:checked + span{color:#98a39d;text-decoration:line-through;text-decoration-thickness:1px}
+.todo-item span{transition:.15s ease}
+
+/* Tips */
+.tip-card{display:grid;grid-template-columns:38px 1fr;gap:12px;align-items:flex-start}
+.tip-icon{width:36px;height:36px;border-radius:12px;background:var(--paper-2);border:1px solid var(--line);display:grid;place-items:center;color:var(--sage)}
+.tip-icon svg{width:18px;height:18px}
+.tip-card p{margin:2px 0 0;color:#536158;font-size:13px}
+.footer-note{text-align:center;color:#9aa39e;font-size:11px;margin-top:42px}
+
+/* icon helpers */
+.icon{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+@media(max-width:700px){
+  .hero-inner{padding-top:28px}.hero h1{font-size:34px}.focus{padding:17px}.count{font-size:27px}
+  .wrap{padding-left:14px;padding-right:14px}.grid{grid-template-columns:1fr}
+  .section-head{margin-top:31px}.section-icon{width:35px;height:35px}
+  .timeline:before{left:53px}.item{grid-template-columns:44px 1fr;gap:18px}.day-card:before{left:-23px}
+  .time{font-size:11px}.booking-card{padding-left:58px}.booking-icon{left:16px}
+  .map-caption{align-items:flex-start;flex-direction:column}.amap-mini{height:132px}
+  .progress-track{width:100px}
+}
+@media(max-width:420px){
+  .hero h1{font-size:31px}.hero-sub{font-size:13px}.hero-meta{gap:6px}.hero-pill{font-size:11px}
+  .card{padding:16px}.booking-card{padding-left:16px;padding-top:62px}.booking-icon{top:16px}
+  .booking-title{display:block}.booking-title .date{display:block;margin-top:2px}.route-time{font-size:19px}
+  .day-actions{display:grid;grid-template-columns:1fr}.map-toggle,.navbtn{justify-content:center}
+}
 </style>
 </head>
 <body>
-<header class="hero"><div class="inner">
-<div class="eyebrow">YUNNAN · 2026</div><h1>8天7晚 · 两个人的云南</h1><p>09/25 深圳出发 → 10/02 丽江返深 · 全部时间均为北京时间 UTC+8</p>
-<div class="focus" id="focus">
-<div class="focus-top"><span class="badge">此刻关注</span><span class="tz">Asia/Shanghai · UTC+8</span></div>
-<div class="event" id="nextEvent">正在读取下一事件…</div>
-<div class="count" id="countdown">—</div><div class="sub" id="countSub"></div>
-</div>
-</div></header>
+
+<!-- Reusable inline icons -->
+<svg width="0" height="0" style="position:absolute;visibility:hidden" aria-hidden="true">
+  <symbol id="i-mountain" viewBox="0 0 24 24"><path d="M3 19 9.2 7.5l3.1 5L15 8l6 11Z"/><path d="m7.8 10 1.4-2.5 1.5 2.5"/></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><path d="m3 6 5-2 8 2 5-2v14l-5 2-8-2-5 2Z"/><path d="M8 4v14M16 6v14"/></symbol>
+  <symbol id="i-plane" viewBox="0 0 24 24"><path d="M22 2 11 13"/><path d="m22 2-7 20-4-9-9-4Z"/></symbol>
+  <symbol id="i-bed" viewBox="0 0 24 24"><path d="M3 19v-8M21 19v-6a2 2 0 0 0-2-2H8a3 3 0 0 0-3 3v1"/><path d="M3 15h18M7 11V7h5a3 3 0 0 1 3 3v1"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="m8 12 2.5 2.5L16 9"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 3 1.3 4.1L17 9l-3.7 1.9L12 15l-1.3-4.1L7 9l3.7-1.9Z"/><path d="m19 14 .7 2.3L22 17l-2.3.7L19 20l-.7-2.3L16 17l2.3-.7Z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></symbol>
+  <symbol id="i-shirt" viewBox="0 0 24 24"><path d="m8 4 4 2 4-2 5 4-3 4-2-1v9H8v-9l-2 1-3-4Z"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 3h7v7M10 14 21 3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></symbol>
+</svg>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="brandline">
+      <span class="brandmark"><svg class="icon"><use href="#i-mountain"/></svg></span>
+      YUNNAN · 2026
+    </div>
+    <h1>风花雪月行纪｜云南漫游手册</h1>
+    <p class="hero-sub">09/25 深圳出发 → 10/02 丽江返深 · 全部时间均为北京时间 UTC+8</p>
+    <div class="hero-meta">
+      <span class="hero-pill"><svg class="icon"><use href="#i-calendar"/></svg>8 天 · 7 晚</span>
+      <span class="hero-pill"><svg class="icon"><use href="#i-pin"/></svg>昆明 · 丽江 · 香格里拉</span>
+      <span class="hero-pill"><svg class="icon"><use href="#i-heart"/></svg>双人旅行</span>
+    </div>
+
+    <div class="focus" id="focus">
+      <div class="focus-top"><span class="badge">下一程</span><span class="tz">Asia/Shanghai · UTC+8</span></div>
+      <div class="event" id="nextEvent">正在读取下一事件…</div>
+      <div class="count" id="countdown">—</div>
+      <div class="sub" id="countSub"></div>
+    </div>
+  </div>
+</header>
 
 <div class="wrap">
-<div class="sticky"><div class="tabs"><a href="#map">总览</a><a href="#confirmed">已确认</a><a href="#days">逐日</a><a href="#todo">待办</a><a href="#tips">贴士</a></div></div>
+  <nav class="sticky" aria-label="页面导航">
+    <div class="tabs">
+      <a href="#map"><svg class="icon"><use href="#i-map"/></svg>总览</a>
+      <a href="#flights"><svg class="icon"><use href="#i-plane"/></svg>航班</a>
+      <a href="#hotels"><svg class="icon"><use href="#i-bed"/></svg>酒店</a>
+      <a href="#days"><svg class="icon"><use href="#i-calendar"/></svg>每日安排</a>
+      <a href="#todo"><svg class="icon"><use href="#i-check"/></svg>待办清单</a>
+      <a href="#tips"><svg class="icon"><use href="#i-spark"/></svg>贴士</a>
+    </div>
+  </nav>
 
-<section id="map"><h2>行程总览地图</h2><p class="section-note">手绘示意，不按真实比例；每天路线颜色不同。点击地点可直接交给高德。</p>
-<div class="route">
-<svg viewBox="0 0 800 330" role="img" aria-label="昆明、丽江、香格里拉路线示意图">
-<path d="M95 225 C220 165 285 105 420 140 S585 210 705 115" fill="none" stroke="#47735e" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 9"/>
-<path d="M420 140 C505 180 570 215 650 255" fill="none" stroke="#b96e45" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 9"/>
-<path d="M650 255 C590 235 505 195 420 140" fill="none" stroke="#7a6a9b" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 9"/>
-<g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" text-anchor="middle">
-<g><circle cx="95" cy="225" r="12" fill="#47735e"/><text x="95" y="260" font-size="18" font-weight="800">昆明</text><text x="95" y="280" font-size="12" fill="#758078">9/25 住</text></g>
-<g><circle cx="420" cy="140" r="12" fill="#47735e"/><text x="420" y="105" font-size="18" font-weight="800">丽江</text><text x="420" y="87" font-size="12" fill="#758078">9/26–29 住</text></g>
-<g><circle cx="650" cy="255" r="12" fill="#b96e45"/><text x="650" y="292" font-size="18" font-weight="800">香格里拉</text><text x="650" y="311" font-size="12" fill="#758078">9/29–10/1 住</text></g>
-<g><circle cx="420" cy="140" r="6" fill="#7a6a9b"/><text x="530" y="115" font-size="11" fill="#7a6a9b">10/1 返回丽江</text></g>
-</g>
-</svg>
-<div class="legend"><span><i class="dot" style="background:#47735e"></i>昆明→丽江</span><span><i class="dot" style="background:#b96e45"></i>丽江→香格里拉</span><span><i class="dot" style="background:#7a6a9b"></i>香格里拉→丽江</span></div>
-</div></section>
+  <section id="map">
+    <div class="section-head">
+      <div class="section-title-wrap"><div class="kicker">TRIP OVERVIEW</div><h2>行程总览地图</h2></div>
+      <div class="section-icon"><svg class="icon"><use href="#i-map"/></svg></div>
+    </div>
+    <p class="section-note">以云南城市真实方位关系做布局，主线路按日期分色；灰色城市仅用于地理参照。</p>
 
-<section id="confirmed"><h2>已确认订单</h2><div class="grid">
-<div class="card confirm"><h3>✈️ 09/25 海航 HU7767</h3><p><b>07:25</b> 深圳宝安 T3 → <b>09:35</b> 昆明长水</p><p class="mini">已出票 · 北京时间 UTC+8</p></div>
-<div class="card confirm"><h3>✈️ 10/02 吉祥航空 HO1946</h3><p><b>22:00</b> 丽江三义 → <b>10/03 00:30</b> 深圳宝安 T3</p><p class="mini">已出票 · 北京时间 UTC+8</p></div>
-<div class="card confirm"><h3>🏨 09/25–09/26 昆明</h3><p>全季昆明火车站北广场酒店</p><p class="mini">官渡区北京路89号 · 14:00后入住 / 14:00前退房 · 电话 0871-68275555</p><a class="navbtn" href="https://uri.amap.com/search?keyword=%E5%85%A8%E5%AD%A3%E6%98%86%E6%98%8E%E7%81%AB%E8%BD%A6%E7%AB%99%E5%8C%97%E5%B9%BF%E5%9C%BA%E9%85%92%E5%BA%97&city=%E6%98%86%E6%98%8E&callnative=1">高德地图</a></div>
-<div class="card confirm"><h3>🏨 09/26–09/29 丽江</h3><p>甜蜜八月·设计师森系概念花园客栈</p><p class="mini">丽江古城区光义街忠义巷60号 · 12:00后入住 / 12:00前退房 · 电话 17708888728</p><a class="navbtn" href="https://uri.amap.com/search?keyword=%E7%94%9C%E8%9C%9C%E5%85%AB%E6%9C%88%E8%AE%BE%E8%AE%A1%E5%B8%88%E6%A3%AE%E7%B3%BB%E6%A6%82%E5%BF%B5%E8%8A%B1%E5%9B%AD%E5%AE%A2%E6%A0%88&city=%E4%B8%BD%E6%B1%9F&callnative=1">高德地图</a></div>
-<div class="card confirm"><h3>🏨 09/29–10/01 香格里拉</h3><p>香格里拉木言观澜客栈</p><p class="mini">建塘镇北门社区措廊21号 · 14:00后入住 / 12:00前退房 · 截图显示免费接送机</p><a class="navbtn" href="https://uri.amap.com/search?keyword=%E9%A6%99%E6%A0%BC%E9%87%8C%E6%8B%89%E6%9C%A8%E8%A8%80%E8%A7%82%E6%BE%9C%E5%AE%A2%E6%A0%88&city=%E9%A6%99%E6%A0%BC%E9%87%8C%E6%8B%89&callnative=1">高德地图</a></div>
-<div class="card confirm"><h3>🏨 10/01–10/02 丽江</h3><p>丽江安宿·水木度假庭院</p><p class="mini">古城区束河街道龙泉社区文明村二组1号 · 14:00后入住 / 12:00前退房 · 电话 17787788017</p><a class="navbtn" href="https://uri.amap.com/search?keyword=%E4%B8%BD%E6%B1%9F%E5%AE%89%E5%AE%BF%E6%B0%B4%E6%9C%A8%E5%BA%A6%E5%81%87%E5%BA%AD%E9%99%A2&city=%E4%B8%BD%E6%B1%9F&callnative=1">高德地图</a></div>
-</div>
-<div class="risk"><b>目前最大的时间风险：</b>9/26 昆明→丽江高铁尚未购买，而 9/25–27 是中秋假期；建议一开售就抢。铁路客票目前按 15 天预售规则执行，具体开售时刻以 12306 当日页面为准。</div>
-</section>
+    <div class="overview-map">
+      <div class="map-shell">
+        <svg viewBox="0 0 760 520" role="img" aria-label="云南昆明、丽江、香格里拉城市分布与行程线路">
+          <defs>
+            <linearGradient id="land" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#e4efe7"/><stop offset="1" stop-color="#f3eadc"/></linearGradient>
+            <filter id="soft"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#547060" flood-opacity=".12"/></filter>
+            <marker id="arrow1" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L8,4.5 L0,9 Z" fill="#c28a61"/></marker>
+            <marker id="arrow2" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L8,4.5 L0,9 Z" fill="#6f98a1"/></marker>
+            <marker id="arrow3" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L8,4.5 L0,9 Z" fill="#8c7ba7"/></marker>
+          </defs>
 
-<section id="days"><h2>逐日行程</h2>
-<p class="section-note">已出票交通和已订住宿优先；未确认的景点不冒充“已订”。</p>
-<div class="timeline">
-<div class="item"><div class="time">09/25<br>周五</div><div class="card"><span class="tag">航班</span><span class="tag">昆明</span><h3>深圳 → 昆明 · 入住</h3><p>07:25 航班 → 09:35 抵达昆明 → 前往酒店寄存/入住 → 下午轻松逛昆明。</p><details class="daymap"><summary>展开今日路线地图</summary><svg viewBox="0 0 600 150"><path d="M60 100 C200 40 330 115 510 55" fill="none" stroke="#47735e" stroke-width="5" stroke-dasharray="8 8"/><circle cx="60" cy="100" r="9" fill="#47735e"/><circle cx="300" cy="82" r="9" fill="#b96e45"/><circle cx="510" cy="55" r="9" fill="#47735e"/><text x="60" y="130" text-anchor="middle">深圳宝安T3</text><text x="300" y="112" text-anchor="middle">昆明长水</text><text x="510" y="85" text-anchor="middle">酒店</text></svg><a class="routebtn" href="https://uri.amap.com/navigation?from=113.8107,22.6393,深圳宝安T3&to=102.7218,25.0192,全季酒店&via=102.7218,25.0192,昆明酒店&mode=car&callnative=1">打开今日导航</a></details><a class="navbtn" href="https://uri.amap.com/search?keyword=%E5%85%A8%E5%AD%A3%E6%98%86%E6%98%8E%E7%81%AB%E8%BD%A6%E7%AB%99%E5%8C%97%E5%B9%BF%E5%9C%BA%E9%85%92%E5%BA%97&city=%E6%98%86%E6%98%8E&callnative=1">导航酒店</a></div></div>
-<div class="item"><div class="time">09/26<br>周六</div><div class="card"><span class="tag must">提前订票</span><span class="tag">中秋</span><h3>昆明 → 丽江</h3><p>上午/中午乘高铁前往丽江 → 入住古城客栈 → 下午古城慢逛。</p><details class="daymap"><summary>展开今日路线地图</summary><svg viewBox="0 0 600 150"><path d="M60 100 C210 45 350 55 520 90" fill="none" stroke="#47735e" stroke-width="5" stroke-dasharray="8 8"/><circle cx="60" cy="100" r="9" fill="#47735e"/><circle cx="520" cy="90" r="9" fill="#47735e"/><text x="60" y="130" text-anchor="middle">昆明</text><text x="520" y="120" text-anchor="middle">丽江</text></svg><a class="routebtn" href="https://uri.amap.com/search?keyword=%E4%B8%BD%E6%B1%9F%E7%AB%99&city=%E4%B8%BD%E6%B1%9F&callnative=1">打开今日导航</a></details><p class="mini">⚠️ 9/26 为中秋假期，车票待开售；不要先把上午安排死。</p><a class="navbtn" href="https://uri.amap.com/search?keyword=%E4%B8%BD%E6%B1%9F%E7%AB%99&city=%E4%B8%BD%E6%B1%9F&callnative=1">导航丽江站</a></div></div>
-<div class="item"><div class="time">09/27<br>周日</div><div class="card"><span class="tag">丽江</span><span class="tag">中秋</span><h3>丽江古城 · 慢游</h3><p>不塞远途景点：古城、狮子山一带、咖啡/餐厅、夜景。为后续高原行程留体力。</p><details class="daymap"><summary>展开今日路线地图</summary><svg viewBox="0 0 600 150"><path d="M80 90 C200 30 330 120 510 70" fill="none" stroke="#47735e" stroke-width="5" stroke-dasharray="8 8"/><circle cx="80" cy="90" r="9" fill="#47735e"/><circle cx="300" cy="75" r="9" fill="#b96e45"/><circle cx="510" cy="70" r="9" fill="#47735e"/><text x="80" y="120" text-anchor="middle">住宿</text><text x="300" y="105" text-anchor="middle">丽江古城</text><text x="510" y="100" text-anchor="middle">狮子山</text></svg><a class="routebtn" href="https://uri.amap.com/navigation?from=100.2280,26.8650,%E7%94%9C%E8%9C%9C%E5%85%AB%E6%9C%88&to=100.2260,26.8750,%E7%8B%AE%E5%AD%90%E5%B1%B1&via=100.2290,26.8680,%E4%B8%BD%E6%B1%9F%E5%8F%A4%E5%9F%8E&mode=walk&callnative=1">打开今日多点导航</a></details></div></div>
-<div class="item"><div class="time">09/28<br>周一</div><div class="card"><span class="tag">丽江</span><h3>玉龙雪山候选日</h3><p>建议把玉龙雪山放在这一天，并以官方可预约时段为准。若门票/索道未确认，不视为已订。</p><details class="daymap"><summary>展开今日路线地图</summary><svg viewBox="0 0 600 150"><path d="M80 105 C200 40 330 110 510 55" fill="none" stroke="#7a6a9b" stroke-width="5" stroke-dasharray="8 8"/><circle cx="80" cy="105" r="9" fill="#47735e"/><circle cx="300" cy="75" r="9" fill="#7a6a9b"/><circle cx="510" cy="55" r="9" fill="#47735e"/><text x="80" y="135" text-anchor="middle">住宿</text><text x="300" y="105" text-anchor="middle">玉龙雪山</text><text x="510" y="85" text-anchor="middle">蓝月谷</text></svg><a class="routebtn" href="https://uri.amap.com/navigation?from=100.2280,26.8650,%E4%B8%BD%E6%B1%9F%E5%AE%A2%E6%A0%88&to=100.1860,27.0970,%E8%93%9D%E6%9C%88%E8%B0%B7&via=100.2010,27.1040,%E7%8E%89%E9%BE%99%E9%9B%AA%E5%B1%B1&mode=car&callnative=1">打开今日多点导航</a></details><span class="tag must">需提前核实/预约</span></div></div>
-<div class="item"><div class="time">09/29<br>周二</div><div class="card"><span class="tag">转场</span><span class="tag">香格里拉</span><h3>丽江 → 香格里拉</h3><p>退房 → 前往香格里拉 → 入住独克宗古城附近 → 古城轻逛。</p><details class="daymap"><summary>展开今日路线地图</summary><svg viewBox="0 0 600 150"><path d="M80 100 C220 50 380 50 520 90" fill="none" stroke="#b96e45" stroke-width="5" stroke-dasharray="8 8"/><circle cx="80" cy="100" r="9" fill="#47735e"/><circle cx="520" cy="90" r="9" fill="#b96e45"/><text x="80" y="130" text-anchor="middle">丽江</text><text x="520" y="120" text-anchor="middle">香格里拉</text></svg><a class="routebtn" href="https://uri.amap.com/search?keyword=%E9%A6%99%E6%A0%BC%E9%87%8C%E6%8B%89%E6%9C%A8%E8%A8%80%E8%A7%82%E6%BE%9C%E5%AE%A2%E6%A0%88&city=%E9%A6%99%E6%A0%BC%E9%87%8C%E6%8B%89&callnative=1">打开今日导航</a></details><a class="navbtn" href="https://uri.amap.com/search?keyword=%E9%A6%99%E6%A0%BC%E9%87%8C%E6%8B%89%E6%9C%A8%E8%A8%80%E8%A7%82%E6%BE%9C%E5%AE%A2%E6%A0%88&city=%E9%A6%99%E6%A0%BC%E9%87%8C%E6%8B%89&callnative=1">导航酒店</a></div></div>
-<div class="item"><div class="time">09/30<br>周三</div><div class="card"><span class="tag">香格里拉</span><h3>松赞林寺 / 纳帕海候选日</h3><p>二选一或根据开放、天气和身体状态安排。高海拔当天不要把多个远距离景点硬塞在一起。</p><details class="daymap"><summary>展开今日路线地图</summary><svg viewBox="0 0 600 150"><path d="M70 105 C190 45 330 120 520 65" fill="none" stroke="#b96e45" stroke-width="5" stroke-dasharray="8 8"/><circle cx="70" cy="105" r="9" fill="#b96e45"/><circle cx="300" cy="75" r="9" fill="#b96e45"/><circle cx="520" cy="65" r="9" fill="#47735e"/><text x="70" y="135" text-anchor="middle">住宿</text><text x="300" y="105" text-anchor="middle">松赞林寺</text><text x="520" y="95" text-anchor="middle">纳帕海</text></svg><a class="routebtn" href="https://uri.amap.com/navigation?from=99.7000,27.8300,%E9%A6%99%E6%A0%BC%E9%87%8C%E6%8B%89%E4%BD%8F%E5%AE%BF&to=99.6800,27.9000,%E7%BA%B3%E5%B8%95%E6%B5%B7&via=99.7050,27.9000,%E6%9D%BE%E8%B5%9E%E6%9E%97%E5%AF%BA&mode=car&callnative=1">打开今日多点导航</a></details><span class="tag must">需提前核实预约</span></div></div>
-<div class="item"><div class="time">10/01<br>周四</div><div class="card"><span class="tag">国庆</span><span class="tag">转场</span><h3>香格里拉 → 丽江</h3><p>上午退房 → 返回丽江 → 14:00 后入住安宿·水木度假庭院 → 晚上轻松活动。</p><details class="daymap"><summary>展开今日路线地图</summary><svg viewBox="0 0 600 150"><path d="M80 90 C220 45 390 55 520 100" fill="none" stroke="#7a6a9b" stroke-width="5" stroke-dasharray="8 8"/><circle cx="80" cy="90" r="9" fill="#b96e45"/><circle cx="520" cy="100" r="9" fill="#7a6a9b"/><text x="80" y="120" text-anchor="middle">香格里拉</text><text x="520" y="130" text-anchor="middle">丽江</text></svg><a class="routebtn" href="https://uri.amap.com/navigation?from=99.7000,27.8300,%E9%A6%99%E6%A0%BC%E9%87%8C%E6%8B%89&to=100.2280,26.8650,%E4%B8%BD%E6%B1%9F&mode=car&callnative=1">打开今日导航</a></details><p class="mini">⚠️ 国庆首日，人流与道路压力显著上升，返丽江交通要留余量。</p></div></div>
-<div class="item"><div class="time">10/02<br>周五</div><div class="card"><span class="tag">返程</span><h3>丽江 · 返深</h3><p>白天不安排跨城远途；退房后寄存行李，按航班倒推前往丽江三义机场。</p><details class="daymap"><summary>展开今日路线地图</summary><svg viewBox="0 0 600 150"><path d="M80 90 C230 30 370 120 520 60" fill="none" stroke="#7a6a9b" stroke-width="5" stroke-dasharray="8 8"/><circle cx="80" cy="90" r="9" fill="#47735e"/><circle cx="300" cy="75" r="9" fill="#b96e45"/><circle cx="520" cy="60" r="9" fill="#7a6a9b"/><text x="80" y="120" text-anchor="middle">束河住宿</text><text x="300" y="105" text-anchor="middle">丽江三义机场</text><text x="520" y="90" text-anchor="middle">深圳</text></svg><a class="routebtn" href="https://uri.amap.com/search?keyword=%E4%B8%BD%E6%B1%9F%E4%B8%89%E4%B9%89%E6%9C%BA%E5%9C%BA&city=%E4%B8%BD%E6%B1%9F&callnative=1">导航丽江三义机场</a></details><p><b>22:00</b> HO1946 起飞 → <b>10/03 00:30</b> 抵达深圳。</p></div></div>
-</div></section>
+          <!-- Approximate province silhouette for geographic context -->
+          <path d="M176 66 245 48 291 76 343 68 385 104 447 103 472 142 528 158 536 208 603 238 616 288 651 328 623 373 638 424 586 452 532 442 492 473 427 455 376 474 322 445 267 452 240 414 188 398 170 352 126 330 145 282 114 245 137 206 128 163 157 132Z" fill="url(#land)" stroke="#d3dfd6" stroke-width="2" filter="url(#soft)"/>
 
-<section id="todo"><h2>待办清单</h2>
-<ul class="todo">
-<li>购买 <b>9/26 昆明 → 丽江高铁</b>（开售即买；中秋假期）</li>
-<li>确认玉龙雪山 9/28 是否开放、门票/索道预约规则及可售时段</li>
-<li>确认松赞林寺 / 纳帕海 9/30 的开放时间、预约要求与交通方式</li>
-<li>确认 9/29 丽江 → 香格里拉、10/1 香格里拉 → 丽江的实际交通班次与耗时</li>
-<li>补齐各酒店官方/订单电话（当前截图未提供完整公开电话，暂不编造）</li>
-<li>临近出发再次核对中秋、国庆期间景区预约与交通管控</li>
-</ul>
-</section>
+          <!-- terrain contours -->
+          <g fill="none" stroke="#b8cabb" stroke-width="1.2" opacity=".36">
+            <path d="M170 145c90 42 135-30 216 8s137 25 194 70"/><path d="M145 193c71 40 137-10 209 21s144 26 214 79"/><path d="M154 251c76 25 108-6 177 22s158 27 250 80"/><path d="M178 315c68 5 110-5 177 23s142 44 206 82"/>
+          </g>
 
-<section id="tips"><h2>实用贴士</h2><div class="grid">
-<div class="card"><h3>🌤 温差与穿衣</h3><p>采用可叠穿方案：短袖＋薄外套＋保暖层。雪山和香格里拉不要只按丽江白天温度准备。</p></div>
-<div class="card"><h3>☀️ 防晒</h3><p>高原紫外线强，帽子、墨镜、防晒霜建议每天使用。</p></div>
-<div class="card"><h3>🏔 高原节奏</h3><p>香格里拉海拔明显升高。抵达后放慢节奏，避免剧烈运动；身体不适时直接删减行程。</p></div>
-<div class="card"><h3>🧭 高德导航</h3><p>地点按钮通过高德 URI 调起地图/导航；手机端优先，页面本身不需要地图 SDK 或网络地图资源。高德官方支持移动端 URI 路线规划与调起 App。</p></div>
-</div>
-<div class="risk"><b>节假日风险：</b>9/25–27 是中秋假期；10/1–7 是国庆假期。你的 8 天行程两头都踩到高峰，尤其 9/26 高铁和 10/1 转场需要优先处理。</div>
-</section>
+          <!-- context cities -->
+          <g fill="#93a198">
+            <circle cx="359" cy="300" r="4"/><text class="context-city" x="370" y="304">大理</text>
+            <circle cx="477" cy="352" r="4"/><text class="context-city" x="487" y="356">楚雄</text>
+            <circle cx="635" cy="327" r="4"/><text class="context-city" x="646" y="331">曲靖</text>
+            <circle cx="268" cy="358" r="4"/><text class="context-city" x="278" y="362">保山</text>
+            <circle cx="495" cy="444" r="4"/><text class="context-city" x="505" y="448">普洱</text>
+          </g>
+
+          <!-- main routes -->
+          <path d="M565 367 C500 334 401 286 308 218" fill="none" stroke="#c28a61" stroke-width="6" stroke-linecap="round" marker-end="url(#arrow1)"/>
+          <path d="M303 211 C281 180 249 145 218 116" fill="none" stroke="#6f98a1" stroke-width="6" stroke-linecap="round" marker-end="url(#arrow2)"/>
+          <path d="M221 121 C244 151 272 183 301 207" fill="none" stroke="#8c7ba7" stroke-width="5" stroke-linecap="round" stroke-dasharray="9 8" marker-end="url(#arrow3)"/>
+
+          <!-- external flight stubs -->
+          <path d="M706 396 C659 383 617 376 574 369" fill="none" stroke="#7da4ad" stroke-width="4" stroke-dasharray="5 7" opacity=".9"/>
+          <path d="M307 220 C422 236 563 302 710 400" fill="none" stroke="#b67a7a" stroke-width="3.5" stroke-dasharray="5 8" opacity=".7"/>
+          <g><circle cx="710" cy="400" r="5" fill="#7da4ad"/><text x="705" y="425" text-anchor="end" font-size="12" font-weight="800" fill="#61716a">深圳</text></g>
+
+          <!-- date labels -->
+          <g class="route-date">
+            <rect x="419" y="272" width="62" height="24" rx="12" fill="#fffaf5" stroke="#ead7c5"/><text x="450" y="288" text-anchor="middle" fill="#9d6846">09/26</text>
+            <rect x="233" y="151" width="62" height="24" rx="12" fill="#f3f8f9" stroke="#d4e3e6"/><text x="264" y="167" text-anchor="middle" fill="#5c838c">09/29</text>
+            <rect x="275" y="176" width="62" height="24" rx="12" fill="#f6f2fa" stroke="#ddd4e9"/><text x="306" y="192" text-anchor="middle" fill="#766790">10/01</text>
+          </g>
+
+          <!-- main city markers -->
+          <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+            <g transform="translate(566 368)"><circle r="12" fill="#648374" stroke="white" stroke-width="5"/><text x="0" y="34" text-anchor="middle" font-size="17" font-weight="850" fill="#26382f">昆明</text><text x="0" y="51" text-anchor="middle" font-size="11" fill="#728078">09/25</text></g>
+            <g transform="translate(304 215)"><circle r="12" fill="#648374" stroke="white" stroke-width="5"/><text x="0" y="34" text-anchor="middle" font-size="17" font-weight="850" fill="#26382f">丽江</text><text x="0" y="51" text-anchor="middle" font-size="11" fill="#728078">09/26–29 · 10/01–02</text></g>
+            <g transform="translate(216 113)"><circle r="12" fill="#6f98a1" stroke="white" stroke-width="5"/><text x="0" y="-25" text-anchor="middle" font-size="17" font-weight="850" fill="#26382f">香格里拉</text><text x="0" y="-8" text-anchor="middle" font-size="11" fill="#728078">09/29–10/01</text></g>
+          </g>
+        </svg>
+      </div>
+      <div class="map-caption">
+        <div class="map-caption-text">地图强调城市相对位置与转场关系，不用于精确导航。</div>
+        <a class="map-link" href="https://uri.amap.com/search?keyword=%E4%BA%91%E5%8D%97&callnative=1" target="_blank" rel="noopener"><svg class="icon"><use href="#i-external"/></svg>在高德查看云南</a>
+      </div>
+      <div class="legend">
+        <span class="legend-item"><i class="legend-line" style="--c:#7da4ad"></i>09/25 深圳 → 昆明</span>
+        <span class="legend-item"><i class="legend-line" style="--c:#c28a61"></i>09/26 昆明 → 丽江</span>
+        <span class="legend-item"><i class="legend-line" style="--c:#6f98a1"></i>09/29 丽江 → 香格里拉</span>
+        <span class="legend-item"><i class="legend-line" style="--c:#8c7ba7"></i>10/01 香格里拉 → 丽江</span>
+        <span class="legend-item"><i class="legend-line" style="--c:#b67a7a"></i>10/02 丽江 → 深圳</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="flights">
+    <div class="section-head">
+      <div class="section-title-wrap"><div class="kicker">FLIGHTS</div><h2>航班</h2></div>
+      <div class="section-icon"><svg class="icon"><use href="#i-plane"/></svg></div>
+    </div>
+    <div class="grid">
+      <article class="card booking-card">
+        <div class="booking-icon flight"><svg class="icon"><use href="#i-plane"/></svg></div>
+        <div class="booking-title"><h3>海航 HU7767</h3><span class="date">09/25 · 周五</span></div>
+        <div class="route-text"><span class="route-time">07:25</span> 深圳宝安 T3 <span class="mini">→</span> <span class="route-time">09:35</span> 昆明长水</div>
+        <p class="mini">已出票 · 北京时间 UTC+8</p>
+      </article>
+      <article class="card booking-card">
+        <div class="booking-icon flight"><svg class="icon"><use href="#i-plane"/></svg></div>
+        <div class="booking-title"><h3>吉祥航空 HO1946</h3><span class="date">10/02 · 周五</span></div>
+        <div class="route-text"><span class="route-time">22:00</span> 丽江三义 <span class="mini">→</span> <span class="route-time">00:30</span> 深圳宝安 T3</div>
+        <p class="mini">10/03 抵达 · 已出票 · 北京时间 UTC+8</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="hotels">
+    <div class="section-head">
+      <div class="section-title-wrap"><div class="kicker">STAYS</div><h2>酒店</h2></div>
+      <div class="section-icon"><svg class="icon"><use href="#i-bed"/></svg></div>
+    </div>
+    <div class="grid">
+      <article class="card booking-card">
+        <div class="booking-icon hotel"><svg class="icon"><use href="#i-bed"/></svg></div>
+        <div class="booking-title"><h3>全季昆明火车站北广场酒店</h3><span class="date">09/25–09/26</span></div>
+        <p class="mini">官渡区北京路89号 · 14:00后入住 / 14:00前退房 · 电话 0871-68275555</p>
+        <a class="navbtn" href="https://uri.amap.com/search?keyword=%E5%85%A8%E5%AD%A3%E6%98%86%E6%98%8E%E7%81%AB%E8%BD%A6%E7%AB%99%E5%8C%97%E5%B9%BF%E5%9C%BA%E9%85%92%E5%BA%97&city=%E6%98%86%E6%98%8E&callnative=1" target="_blank" rel="noopener"><svg class="icon"><use href="#i-pin"/></svg>高德地图</a>
+      </article>
+      <article class="card booking-card">
+        <div class="booking-icon hotel"><svg class="icon"><use href="#i-bed"/></svg></div>
+        <div class="booking-title"><h3>甜蜜八月·设计师森系概念花园客栈</h3><span class="date">09/26–09/29</span></div>
+        <p class="mini">丽江古城区光义街忠义巷60号 · 12:00后入住 / 12:00前退房 · 电话 17708888728</p>
+        <a class="navbtn" href="https://uri.amap.com/search?keyword=%E7%94%9C%E8%9C%9C%E5%85%AB%E6%9C%88%E8%AE%BE%E8%AE%A1%E5%B8%88%E6%A3%AE%E7%B3%BB%E6%A6%82%E5%BF%B5%E8%8A%B1%E5%9B%AD%E5%AE%A2%E6%A0%88&city=%E4%B8%BD%E6%B1%9F&callnative=1" target="_blank" rel="noopener"><svg class="icon"><use href="#i-pin"/></svg>高德地图</a>
+      </article>
+      <article class="card booking-card">
+        <div class="booking-icon hotel"><svg class="icon"><use href="#i-bed"/></svg></div>
+        <div class="booking-title"><h3>香格里拉木言观澜客栈</h3><span class="date">09/29–10/01</span></div>
+        <p class="mini">建塘镇北门社区措廊21号 · 14:00后入住 / 12:00前退房 · 截图显示免费接送机</p>
+        <a class="navbtn" href="https://uri.amap.com/search?keyword=%E9%A6%99%E6%A0%BC%E9%87%8C%E6%8B%89%E6%9C%A8%E8%A8%80%E8%A7%82%E6%BE%9C%E5%AE%A2%E6%A0%88&city=%E9%A6%99%E6%A0%BC%E9%87%8C%E6%8B%89&callnative=1" target="_blank" rel="noopener"><svg class="icon"><use href="#i-pin"/></svg>高德地图</a>
+      </article>
+      <article class="card booking-card">
+        <div class="booking-icon hotel"><svg class="icon"><use href="#i-bed"/></svg></div>
+        <div class="booking-title"><h3>丽江安宿·水木度假庭院</h3><span class="date">10/01–10/02</span></div>
+        <p class="mini">古城区束河街道龙泉社区文明村二组1号 · 14:00后入住 / 12:00前退房 · 电话 17787788017</p>
+        <a class="navbtn" href="https://uri.amap.com/search?keyword=%E4%B8%BD%E6%B1%9F%E5%AE%89%E5%AE%BF%E6%B0%B4%E6%9C%A8%E5%BA%A6%E5%81%87%E5%BA%AD%E9%99%A2&city=%E4%B8%BD%E6%B1%9F&callnative=1" target="_blank" rel="noopener"><svg class="icon"><use href="#i-pin"/></svg>高德地图</a>
+      </article>
+    </div>
+    <div class="risk"><b>时间风险：</b>9/26 昆明 → 丽江高铁尚未购买，而 9/25–27 为中秋假期；建议开售后优先锁定车次。</div>
+  </section>
+
+  <section id="days">
+    <div class="section-head">
+      <div class="section-title-wrap"><div class="kicker">DAILY PLAN</div><h2>每日安排</h2></div>
+      <div class="section-icon"><svg class="icon"><use href="#i-calendar"/></svg></div>
+    </div>
+    <p class="section-note">行程卡片只突出当天主线；展开地图后可查看轻量路线预览，并一键跳转高德完整路线。</p>
+
+    <div class="timeline">
+      <div class="item">
+        <div class="time">09/25<br>周五</div>
+        <article class="card day-card">
+          <div class="day-tags"><span class="tag">航班</span><span class="tag">昆明</span></div>
+          <h3>深圳 → 昆明 · 入住</h3>
+          <p class="day-summary">07:25 航班 → 09:35 抵达昆明 → 前往酒店寄存/入住 → 下午轻松逛昆明。</p>
+          <div class="day-actions"><button class="map-toggle" aria-expanded="false"><svg class="icon"><use href="#i-chevron"/></svg><span>展开当日地图</span></button><a class="navbtn" href="https://uri.amap.com/search?keyword=%E5%85%A8%E5%AD%A3%E6%98%86%E6%98%8E%E7%81%AB%E8%BD%A6%E7%AB%99%E5%8C%97%E5%B9%BF%E5%9C%BA%E9%85%92%E5%BA%97&city=%E6%98%86%E6%98%8E&callnative=1" target="_blank" rel="noopener"><svg class="icon"><use href="#i-pin"/></svg>导航酒店</a></div>
+          <div class="daymap-panel">
+            <a class="amap-card" href="https://uri.amap.com/navigation?from=113.8107,22.6393,%E6%B7%B1%E5%9C%B3%E5%AE%9D%E5%AE%89T3&to=102.7218,25.0192,%E5%85%A8%E5%AD%A3%E9%85%92%E5%BA%97&mode=car&callnative=1" target="_blank" rel="noopener" style="--route-color:#7da4ad">
+              <div class="amap-card-head"><span class="amap-brand"><i class="amap-brand-mark">高</i>高德地图</span><span class="amap-meta">深圳宝安 T3 → 昆明长水 → 酒店</span></div>
+              <div class="amap-mini"><i class="route-stroke" style="left:14%;top:67%;width:63%;transform:rotate(-18deg)"></i><span class="poi" style="left:15%;top:69%"><i class="poi-dot"></i><i class="poi-label">深圳</i></span><span class="poi" style="left:52%;top:50%"><i class="poi-dot"></i><i class="poi-label">昆明长水</i></span><span class="poi" style="left:80%;top:35%"><i class="poi-dot"></i><i class="poi-label">酒店</i></span></div>
+              <div class="amap-card-foot"><span>点击打开完整高德路线</span><span>↗</span></div>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <div class="item">
+        <div class="time">09/26<br>周六</div>
+        <article class="card day-card">
+          <div class="day-tags"><span class="tag must">提前订票</span><span class="tag">中秋</span></div>
+          <h3>昆明 → 丽江</h3>
+          <p class="day-summary">上午/中午乘高铁前往丽江 → 入住古城客栈 → 下午古城慢逛。</p>
+          <div class="day-actions"><button class="map-toggle" aria-expanded="false"><svg class="icon"><use href="#i-chevron"/></svg><span>展开当日地图</span></button><a class="navbtn" href="https://uri.amap.com/search?keyword=%E4%B8%BD%E6%B1%9F%E7%AB%99&city=%E4%B8%BD%E6%B1%9F&callnative=1" target="_blank" rel="noopener"><svg class="icon"><use href="#i-pin"/></svg>导航丽江站</a></div>
+          <div class="daymap-panel"><a class="amap-card" href="https://uri.amap.com/search?keyword=%E4%B8%BD%E6%B1%9F%E7%AB%99&city=%E4%B8%BD%E6%B1%9F&callnative=1" target="_blank" rel="noopener" style="--route-color:#c28a61"><div class="amap-card-head"><span class="amap-brand"><i class="amap-brand-mark">高</i>高德地图</span><span class="amap-meta">昆明 → 丽江站 → 古城住宿</span></div><div class="amap-mini"><i class="route-stroke" style="left:17%;top:66%;width:62%;transform:rotate(-21deg)"></i><span class="poi" style="left:18%;top:67%"><i class="poi-dot"></i><i class="poi-label">昆明</i></span><span class="poi" style="left:56%;top:46%"><i class="poi-dot"></i><i class="poi-label">丽江站</i></span><span class="poi" style="left:81%;top:33%"><i class="poi-dot"></i><i class="poi-label">古城住宿</i></span></div><div class="amap-card-foot"><span>点击打开完整高德路线</span><span>↗</span></div></a></div>
+          <p class="mini">⚠️ 9/26 为中秋假期，车票待开售；不要先把上午安排死。</p>
+        </article>
+      </div>
+
+      <div class="item">
+        <div class="time">09/27<br>周日</div>
+        <article class="card day-card">
+          <div class="day-tags"><span class="tag">丽江</span><span class="tag">中秋</span></div>
+          <h3>丽江古城 · 慢游</h3>
+          <p class="day-summary">不塞远途景点：古城、狮子山一带、咖啡/餐厅、夜景，为后续高原行程留体力。</p>
+          <div class="day-actions"><button class="map-toggle" aria-expanded="false"><svg class="icon"><use href="#i-chevron"/></svg><span>展开当日地图</span></button></div>
+          <div class="daymap-panel"><a class="amap-card" href="https://uri.amap.com/navigation?from=100.2280,26.8650,%E7%94%9C%E8%9C%9C%E5%85%AB%E6%9C%88&to=100.2260,26.8750,%E7%8B%AE%E5%AD%90%E5%B1%B1&via=100.2290,26.8680,%E4%B8%BD%E6%B1%9F%E5%8F%A4%E5%9F%8E&mode=walk&callnative=1" target="_blank" rel="noopener" style="--route-color:#648374"><div class="amap-card-head"><span class="amap-brand"><i class="amap-brand-mark">高</i>高德地图</span><span class="amap-meta">住宿 → 丽江古城 → 狮子山</span></div><div class="amap-mini"><i class="route-stroke" style="left:16%;top:62%;width:65%;transform:rotate(-9deg)"></i><span class="poi" style="left:16%;top:62%"><i class="poi-dot"></i><i class="poi-label">住宿</i></span><span class="poi" style="left:51%;top:54%"><i class="poi-dot"></i><i class="poi-label">丽江古城</i></span><span class="poi" style="left:82%;top:47%"><i class="poi-dot"></i><i class="poi-label">狮子山</i></span></div><div class="amap-card-foot"><span>点击打开完整高德路线</span><span>↗</span></div></a></div>
+        </article>
+      </div>
+
+      <div class="item">
+        <div class="time">09/28<br>周一</div>
+        <article class="card day-card">
+          <div class="day-tags"><span class="tag">丽江</span><span class="tag must">需预约</span></div>
+          <h3>玉龙雪山候选日</h3>
+          <p class="day-summary">建议把玉龙雪山放在这一天，并以官方可预约时段为准；若门票/索道未确认，不视为已订。</p>
+          <div class="day-actions"><button class="map-toggle" aria-expanded="false"><svg class="icon"><use href="#i-chevron"/></svg><span>展开当日地图</span></button></div>
+          <div class="daymap-panel"><a class="amap-card" href="https://uri.amap.com/navigation?from=100.2280,26.8650,%E4%B8%BD%E6%B1%9F%E5%AE%A2%E6%A0%88&to=100.1860,27.0970,%E8%93%9D%E6%9C%88%E8%B0%B7&via=100.2010,27.1040,%E7%8E%89%E9%BE%99%E9%9B%AA%E5%B1%B1&mode=car&callnative=1" target="_blank" rel="noopener" style="--route-color:#8c7ba7"><div class="amap-card-head"><span class="amap-brand"><i class="amap-brand-mark">高</i>高德地图</span><span class="amap-meta">住宿 → 玉龙雪山 → 蓝月谷</span></div><div class="amap-mini"><i class="route-stroke" style="left:17%;top:70%;width:61%;transform:rotate(-24deg)"></i><span class="poi" style="left:17%;top:70%"><i class="poi-dot"></i><i class="poi-label">住宿</i></span><span class="poi" style="left:51%;top:47%"><i class="poi-dot"></i><i class="poi-label">玉龙雪山</i></span><span class="poi" style="left:80%;top:27%"><i class="poi-dot"></i><i class="poi-label">蓝月谷</i></span></div><div class="amap-card-foot"><span>点击打开完整高德路线</span><span>↗</span></div></a></div>
+        </article>
+      </div>
+
+      <div class="item">
+        <div class="time">09/29<br>周二</div>
+        <article class="card day-card">
+          <div class="day-tags"><span class="tag">转场</span><span class="tag">香格里拉</span></div>
+          <h3>丽江 → 香格里拉</h3>
+          <p class="day-summary">退房 → 前往香格里拉 → 入住独克宗古城附近 → 古城轻逛。</p>
+          <div class="day-actions"><button class="map-toggle" aria-expanded="false"><svg class="icon"><use href="#i-chevron"/></svg><span>展开当日地图</span></button><a class="navbtn" href="https://uri.amap.com/search?keyword=%E9%A6%99%E6%A0%BC%E9%87%8C%E6%8B%89%E6%9C%A8%E8%A8%80%E8%A7%82%E6%BE%9C%E5%AE%A2%E6%A0%88&city=%E9%A6%99%E6%A0%BC%E9%87%8C%E6%8B%89&callnative=1" target="_blank" rel="noopener"><svg class="icon"><use href="#i-pin"/></svg>导航酒店</a></div>
+          <div class="daymap-panel"><a class="amap-card" href="https://uri.amap.com/search?keyword=%E9%A6%99%E6%A0%BC%E9%87%8C%E6%8B%89%E6%9C%A8%E8%A8%80%E8%A7%82%E6%BE%9C%E5%AE%A2%E6%A0%88&city=%E9%A6%99%E6%A0%BC%E9%87%8C%E6%8B%89&callnative=1" target="_blank" rel="noopener" style="--route-color:#6f98a1"><div class="amap-card-head"><span class="amap-brand"><i class="amap-brand-mark">高</i>高德地图</span><span class="amap-meta">丽江 → 香格里拉 → 独克宗附近</span></div><div class="amap-mini"><i class="route-stroke" style="left:18%;top:68%;width:61%;transform:rotate(-20deg)"></i><span class="poi" style="left:18%;top:68%"><i class="poi-dot"></i><i class="poi-label">丽江</i></span><span class="poi" style="left:57%;top:43%"><i class="poi-dot"></i><i class="poi-label">香格里拉</i></span><span class="poi" style="left:81%;top:32%"><i class="poi-dot"></i><i class="poi-label">住宿</i></span></div><div class="amap-card-foot"><span>点击打开完整高德路线</span><span>↗</span></div></a></div>
+        </article>
+      </div>
+
+      <div class="item">
+        <div class="time">09/30<br>周三</div>
+        <article class="card day-card">
+          <div class="day-tags"><span class="tag">香格里拉</span><span class="tag must">需核实</span></div>
+          <h3>松赞林寺 / 纳帕海候选日</h3>
+          <p class="day-summary">二选一或根据开放、天气和身体状态安排；高海拔当天不要把多个远距离景点硬塞在一起。</p>
+          <div class="day-actions"><button class="map-toggle" aria-expanded="false"><svg class="icon"><use href="#i-chevron"/></svg><span>展开当日地图</span></button></div>
+          <div class="daymap-panel"><a class="amap-card" href="https://uri.amap.com/navigation?from=99.7000,27.8300,%E9%A6%99%E6%A0%BC%E9%87%8C%E6%8B%89%E4%BD%8F%E5%AE%BF&to=99.6800,27.9000,%E7%BA%B3%E5%B8%95%E6%B5%B7&via=99.7050,27.9000,%E6%9D%BE%E8%B5%9E%E6%9E%97%E5%AF%BA&mode=car&callnative=1" target="_blank" rel="noopener" style="--route-color:#6f98a1"><div class="amap-card-head"><span class="amap-brand"><i class="amap-brand-mark">高</i>高德地图</span><span class="amap-meta">住宿 → 松赞林寺 → 纳帕海</span></div><div class="amap-mini"><i class="route-stroke" style="left:16%;top:66%;width:64%;transform:rotate(-12deg)"></i><span class="poi" style="left:16%;top:66%"><i class="poi-dot"></i><i class="poi-label">住宿</i></span><span class="poi" style="left:50%;top:52%"><i class="poi-dot"></i><i class="poi-label">松赞林寺</i></span><span class="poi" style="left:81%;top:42%"><i class="poi-dot"></i><i class="poi-label">纳帕海</i></span></div><div class="amap-card-foot"><span>点击打开完整高德路线</span><span>↗</span></div></a></div>
+        </article>
+      </div>
+
+      <div class="item">
+        <div class="time">10/01<br>周四</div>
+        <article class="card day-card">
+          <div class="day-tags"><span class="tag">国庆</span><span class="tag">转场</span></div>
+          <h3>香格里拉 → 丽江</h3>
+          <p class="day-summary">上午退房 → 返回丽江 → 14:00 后入住安宿·水木度假庭院 → 晚上轻松活动。</p>
+          <div class="day-actions"><button class="map-toggle" aria-expanded="false"><svg class="icon"><use href="#i-chevron"/></svg><span>展开当日地图</span></button></div>
+          <div class="daymap-panel"><a class="amap-card" href="https://uri.amap.com/navigation?from=99.7000,27.8300,%E9%A6%99%E6%A0%BC%E9%87%8C%E6%8B%89&to=100.2280,26.8650,%E4%B8%BD%E6%B1%9F&mode=car&callnative=1" target="_blank" rel="noopener" style="--route-color:#8c7ba7"><div class="amap-card-head"><span class="amap-brand"><i class="amap-brand-mark">高</i>高德地图</span><span class="amap-meta">香格里拉 → 丽江 → 束河住宿</span></div><div class="amap-mini"><i class="route-stroke" style="left:17%;top:34%;width:63%;transform:rotate(19deg)"></i><span class="poi" style="left:17%;top:34%"><i class="poi-dot"></i><i class="poi-label">香格里拉</i></span><span class="poi" style="left:55%;top:51%"><i class="poi-dot"></i><i class="poi-label">丽江</i></span><span class="poi" style="left:82%;top:65%"><i class="poi-dot"></i><i class="poi-label">束河住宿</i></span></div><div class="amap-card-foot"><span>点击打开完整高德路线</span><span>↗</span></div></a></div>
+          <p class="mini">⚠️ 国庆首日，人流与道路压力上升，返丽江交通要留余量。</p>
+        </article>
+      </div>
+
+      <div class="item">
+        <div class="time">10/02<br>周五</div>
+        <article class="card day-card">
+          <div class="day-tags"><span class="tag">返程</span></div>
+          <h3>丽江 · 返深</h3>
+          <p class="day-summary">白天不安排跨城远途；退房后寄存行李，按航班倒推前往丽江三义机场。</p>
+          <div class="day-actions"><button class="map-toggle" aria-expanded="false"><svg class="icon"><use href="#i-chevron"/></svg><span>展开当日地图</span></button><a class="navbtn" href="https://uri.amap.com/search?keyword=%E4%B8%BD%E6%B1%9F%E4%B8%89%E4%B9%89%E6%9C%BA%E5%9C%BA&city=%E4%B8%BD%E6%B1%9F&callnative=1" target="_blank" rel="noopener"><svg class="icon"><use href="#i-pin"/></svg>导航机场</a></div>
+          <div class="daymap-panel"><a class="amap-card" href="https://uri.amap.com/search?keyword=%E4%B8%BD%E6%B1%9F%E4%B8%89%E4%B9%89%E6%9C%BA%E5%9C%BA&city=%E4%B8%BD%E6%B1%9F&callnative=1" target="_blank" rel="noopener" style="--route-color:#b67a7a"><div class="amap-card-head"><span class="amap-brand"><i class="amap-brand-mark">高</i>高德地图</span><span class="amap-meta">束河住宿 → 丽江三义机场 → 深圳</span></div><div class="amap-mini"><i class="route-stroke" style="left:16%;top:38%;width:65%;transform:rotate(18deg)"></i><span class="poi" style="left:16%;top:38%"><i class="poi-dot"></i><i class="poi-label">束河住宿</i></span><span class="poi" style="left:52%;top:53%"><i class="poi-dot"></i><i class="poi-label">丽江三义</i></span><span class="poi" style="left:82%;top:68%"><i class="poi-dot"></i><i class="poi-label">深圳</i></span></div><div class="amap-card-foot"><span>点击打开完整高德地图</span><span>↗</span></div></a></div>
+          <p><b>22:00</b> HO1946 起飞 → <b>10/03 00:30</b> 抵达深圳。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="todo">
+    <div class="section-head">
+      <div class="section-title-wrap"><div class="kicker">CHECKLIST</div><h2>待办清单</h2></div>
+      <div class="section-icon"><svg class="icon"><use href="#i-check"/></svg></div>
+    </div>
+    <p class="section-note">手机端可直接勾选，完成状态会保存在当前浏览器中，刷新页面后仍保留。</p>
+    <div class="card todo-card">
+      <div class="todo-progress"><div class="progress-copy"><b id="todoDone">0</b> / <span id="todoTotal">6</span> 已完成</div><div class="progress-track"><div class="progress-bar" id="todoProgress"></div></div></div>
+      <div class="todo-list">
+        <label class="todo-item"><input type="checkbox" data-todo="train-0926"><span>购买 <b>9/26 昆明 → 丽江高铁</b>（开售即买；中秋假期）</span></label>
+        <label class="todo-item"><input type="checkbox" data-todo="yulong-0928"><span>确认玉龙雪山 9/28 是否开放、门票/索道预约规则及可售时段</span></label>
+        <label class="todo-item"><input type="checkbox" data-todo="shangri-0930"><span>确认松赞林寺 / 纳帕海 9/30 的开放时间、预约要求与交通方式</span></label>
+        <label class="todo-item"><input type="checkbox" data-todo="transfer"><span>确认 9/29 丽江 → 香格里拉、10/1 香格里拉 → 丽江的实际交通班次与耗时</span></label>
+        <label class="todo-item"><input type="checkbox" data-todo="hotel-phone"><span>补齐各酒店官方/订单电话</span></label>
+        <label class="todo-item"><input type="checkbox" data-todo="holiday-check"><span>临近出发再次核对中秋、国庆期间景区预约与交通管控</span></label>
+      </div>
+    </div>
+  </section>
+
+  <section id="tips">
+    <div class="section-head">
+      <div class="section-title-wrap"><div class="kicker">TRAVEL NOTES</div><h2>实用贴士</h2></div>
+      <div class="section-icon"><svg class="icon"><use href="#i-spark"/></svg></div>
+    </div>
+    <div class="grid">
+      <article class="card tip-card"><div class="tip-icon"><svg class="icon"><use href="#i-shirt"/></svg></div><div><h3>温差与穿衣</h3><p>采用可叠穿方案：短袖＋薄外套＋保暖层。雪山和香格里拉不要只按丽江白天温度准备。</p></div></article>
+      <article class="card tip-card"><div class="tip-icon"><svg class="icon"><use href="#i-sun"/></svg></div><div><h3>防晒</h3><p>高原紫外线强，帽子、墨镜、防晒霜建议每天使用。</p></div></article>
+      <article class="card tip-card"><div class="tip-icon"><svg class="icon"><use href="#i-mountain"/></svg></div><div><h3>高原节奏</h3><p>香格里拉海拔明显升高。抵达后放慢节奏，避免剧烈运动；身体不适时直接删减行程。</p></div></article>
+      <article class="card tip-card"><div class="tip-icon"><svg class="icon"><use href="#i-map"/></svg></div><div><h3>高德导航</h3><p>页面使用高德 URI 跳转完整地点与路线。内嵌小地图为轻量路线预览，不依赖地图 SDK，移动端更稳定。</p></div></article>
+    </div>
+    <div class="risk"><b>节假日提醒：</b>9/25–27 为中秋假期；10/1–7 为国庆假期。行程两头都踩到高峰，尤其 9/26 高铁和 10/1 转场需要优先留余量。</div>
+  </section>
+
+  <div class="footer-note">风花雪月行纪 · 云南漫游手册 · 2026</div>
 </div>
 
 <script>
 const events=[
-["2026-09-25T07:25:00+08:00","HU7767 起飞 · 深圳宝安 T3"],
-["2026-09-25T09:35:00+08:00","抵达昆明长水"],
-["2026-09-26T12:00:00+08:00","丽江客栈入住窗口开始"],
-["2026-09-28T08:00:00+08:00","玉龙雪山候选日 · 请以预约时段为准"],
-["2026-09-29T14:00:00+08:00","香格里拉客栈入住窗口开始"],
-["2026-10-01T14:00:00+08:00","丽江安宿入住窗口开始"],
-["2026-10-02T22:00:00+08:00","HO1946 起飞 · 丽江三义"],
-["2026-10-03T00:30:00+08:00","抵达深圳宝安 T3"]
+  ["2026-09-25T07:25:00+08:00","HU7767 起飞 · 深圳宝安 T3"],
+  ["2026-09-25T09:35:00+08:00","抵达昆明长水"],
+  ["2026-09-26T12:00:00+08:00","丽江客栈入住窗口开始"],
+  ["2026-09-28T08:00:00+08:00","玉龙雪山候选日 · 请以预约时段为准"],
+  ["2026-09-29T14:00:00+08:00","香格里拉客栈入住窗口开始"],
+  ["2026-10-01T14:00:00+08:00","丽江安宿入住窗口开始"],
+  ["2026-10-02T22:00:00+08:00","HO1946 起飞 · 丽江三义"],
+  ["2026-10-03T00:30:00+08:00","抵达深圳宝安 T3"]
 ];
 const $=id=>document.getElementById(id);
+
 function tick(){
- const now=Date.now();
- let e=events.find(x=>new Date(x[0]).getTime()>now);
- if(!e){$("nextEvent").textContent="旅程已结束";$("countdown").textContent="";$("countSub").textContent="";return}
- const target=new Date(e[0]).getTime(), diff=Math.max(0,target-now);
- const d=Math.floor(diff/86400000),h=Math.floor(diff/3600000)%24,m=Math.floor(diff/60000)%60,s=Math.floor(diff/1000)%60;
- $("nextEvent").textContent=e[1];$("countdown").innerHTML=`${d}<small>天</small> ${String(h).padStart(2,"0")}<small>时</small> ${String(m).padStart(2,"0")}<small>分</small> ${String(s).padStart(2,"0")}<small>秒</small>`;
- $("countSub").textContent=new Intl.DateTimeFormat("zh-CN",{dateStyle:"medium",timeStyle:"short",timeZone:"Asia/Shanghai"}).format(target)+" · UTC+8";
+  const now=Date.now();
+  const e=events.find(x=>new Date(x[0]).getTime()>now);
+  if(!e){$("nextEvent").textContent="旅程已结束";$("countdown").textContent="";$("countSub").textContent="";return;}
+  const target=new Date(e[0]).getTime();
+  const diff=Math.max(0,target-now);
+  const d=Math.floor(diff/86400000),h=Math.floor(diff/3600000)%24,m=Math.floor(diff/60000)%60,s=Math.floor(diff/1000)%60;
+  $("nextEvent").textContent=e[1];
+  $("countdown").innerHTML=`${d}<small>天</small> ${String(h).padStart(2,"0")}<small>时</small> ${String(m).padStart(2,"0")}<small>分</small> ${String(s).padStart(2,"0")}<small>秒</small>`;
+  $("countSub").textContent=new Intl.DateTimeFormat("zh-CN",{dateStyle:"medium",timeStyle:"short",timeZone:"Asia/Shanghai"}).format(target)+" · UTC+8";
 }
 tick();setInterval(tick,1000);
-function updateTheme(){
- const f=new Intl.DateTimeFormat("en-US",{timeZone:"Asia/Shanghai",hour:"2-digit",hour12:false}).formatToParts(new Date());
- const hour=Number(f.find(x=>x.type==="hour").value)%24;
- document.body.classList.toggle("night",hour<6||hour>=18);
+
+// Daily map expand / collapse
+for(const btn of document.querySelectorAll('.map-toggle')){
+  btn.addEventListener('click',()=>{
+    const card=btn.closest('.day-card');
+    const panel=card.querySelector('.daymap-panel');
+    const open=btn.getAttribute('aria-expanded')==='true';
+    btn.setAttribute('aria-expanded',String(!open));
+    btn.querySelector('span').textContent=open?'展开当日地图':'收起当日地图';
+    panel.classList.toggle('open',!open);
+  });
 }
-updateTheme();setInterval(updateTheme,60000);
+
+// Mobile-friendly checklist persistence
+const TODO_KEY='yunnan-trip-2026-checklist-v2';
+const todoInputs=[...document.querySelectorAll('[data-todo]')];
+function loadTodo(){
+  let saved={};
+  try{saved=JSON.parse(localStorage.getItem(TODO_KEY)||'{}')}catch(e){}
+  todoInputs.forEach(input=>input.checked=!!saved[input.dataset.todo]);
+  updateTodoProgress();
+}
+function saveTodo(){
+  const saved={};
+  todoInputs.forEach(input=>saved[input.dataset.todo]=input.checked);
+  localStorage.setItem(TODO_KEY,JSON.stringify(saved));
+  updateTodoProgress();
+}
+function updateTodoProgress(){
+  const done=todoInputs.filter(x=>x.checked).length;
+  const total=todoInputs.length;
+  $('todoDone').textContent=done;
+  $('todoTotal').textContent=total;
+  $('todoProgress').style.width=(total?done/total*100:0)+'%';
+}
+todoInputs.forEach(input=>input.addEventListener('change',saveTodo));
+loadTodo();
 </script>
 </body>
 </html>
