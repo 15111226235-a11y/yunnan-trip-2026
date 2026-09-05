@@ -5,8 +5,7 @@ export default {
     const url = new URL(request.url);
     if (!url.pathname.startsWith('/api/')) return env.ASSETS.fetch(request);
     if (url.pathname !== '/api/todos') return json({error:'接口不存在'},404);
-    if (!env.DB || !env.SYNC_CODE) return json({error:'共享清单尚未配置，请联系组织者'},503);
-    if (request.headers.get('Authorization') !== `Bearer ${env.SYNC_CODE}`) return json({error:'同步码不正确，请重新连接'},401);
+    if (!env.DB) return json({error:'共享清单尚未配置，请联系组织者'},503);
     try {
       if (request.method === 'GET') {
         const { results } = await env.DB.prepare('SELECT id, checked FROM todos').all();

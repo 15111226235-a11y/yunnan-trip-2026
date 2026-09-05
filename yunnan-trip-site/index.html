@@ -1391,14 +1391,8 @@ html[data-mode="night"] .hero-art svg{
       <div class="section-title-wrap"><div class="kicker">出发前准备</div><h2>待办清单</h2></div>
       <div class="section-icon"><svg class="icon"><use href="#i-check"/></svg></div>
     </div>
-    <p class="section-note">同行人输入同一个同步码，共用一份清单。未连接时仅保存在当前浏览器。</p>
-    <form id="syncForm" class="section-note" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
-      <label for="syncCode">同步码</label>
-      <input id="syncCode" type="password" autocomplete="off" maxlength="128" placeholder="向组织者获取" style="min-width:0;max-width:100%;padding:10px;border:1px solid var(--line);border-radius:8px">
-      <button type="submit" id="syncConnect">连接共享清单</button>
-      <button type="button" id="syncDisconnect" hidden>断开同步</button>
-      <span id="syncStatus" role="status" aria-live="polite">仅保存在本机</span>
-    </form>
+    <p class="section-note">所有访客共用一份清单，勾选自动同步，无需登录。</p>
+    <p class="section-note" id="syncStatus" role="status" aria-live="polite">正在加载共享清单…</p>
     <div class="card todo-card">
       <div class="todo-progress"><div class="progress-copy"><b id="todoDone">0</b> / <span id="todoTotal">6</span> 已完成</div><div class="progress-track"><div class="progress-bar" id="todoProgress"></div></div></div>
       <div class="todo-list">
@@ -1518,7 +1512,7 @@ function saveTodo(event){
   const saved={};
   todoInputs.forEach(input=>saved[input.dataset.todo]=input.checked);
   try{localStorage.setItem(TODO_KEY,JSON.stringify(saved))}catch{}
-  if(syncToken && event){
+  if(event){
     pending[event.target.dataset.todo]={checked:event.target.checked,operation:crypto.randomUUID()};
     persistSync();
     syncTodos();
@@ -1607,21 +1601,20 @@ document.addEventListener("click",e=>{
   }
 });
 const SYNC_KEY='yunnan-trip-2026-shared-v1';
-let syncToken='',pending={},syncBusy=false;
+let pending={},syncBusy=false;
 try{
   const cached=JSON.parse(localStorage.getItem(SYNC_KEY)||'{}');
-  syncToken=typeof cached.token==='string'?cached.token:'';
   pending=cached.pending&&typeof cached.pending==='object'?cached.pending:{};
 }catch{}
 function persistSync(){
-  try{localStorage.setItem(SYNC_KEY,JSON.stringify({token:syncToken,pending}))}catch{
+  try{localStorage.setItem(SYNC_KEY,JSON.stringify({pending}))}catch{
     $('syncStatus').textContent='浏览器无法保存，请保持页面打开直到同步完成';
   }
 }
-async function todoRequest(token,body){
+async function todoRequest(body){
   const response=await fetch('/api/todos',{
     method:body?'PUT':'GET',cache:'no-store',signal:AbortSignal.timeout(10000),
-    headers:{Authorization:'Bearer '+token,...(body?{'Content-Type':'application/json'}:{})},
+    headers:body?{'Content-Type':'application/json'}:{},
     ...(body?{body:JSON.stringify(body)}:{})
   });
   const data=await response.json();
@@ -1635,52 +1628,26 @@ function applyShared(todos){
   });
   saveTodo();
 }
-function syncControls(){
-  $('syncDisconnect').hidden=!syncToken;
-  $('syncConnect').disabled=!!syncToken||syncBusy;
-  $('syncCode').disabled=!!syncToken||syncBusy;
-}
 async function syncTodos(){
-  if(!syncToken||syncBusy)return;
-  syncBusy=true;syncControls();
+  if(syncBusy)return;
+  syncBusy=true;
   $('syncStatus').textContent='正在同步…';
   try{
     for(const [id,change] of Object.entries(pending)){
-      await todoRequest(syncToken,{id,...change});
+      await todoRequest({id,...change});
       if(pending[id]?.operation===change.operation)delete pending[id];
       persistSync();
     }
-    const data=await todoRequest(syncToken);
+    const data=await todoRequest();
     applyShared(data.todos);
-    $('syncStatus').textContent=Object.keys(pending).length?'有新修改等待同步':'已同步 · 同行人共用';
+    $('syncStatus').textContent=Object.keys(pending).length?'有新修改等待同步':'已同步 · 所有人共用';
   }catch(error){
     $('syncStatus').textContent=(error instanceof TypeError || error.name==='TimeoutError'?'网络不可用':error.message)+'；修改保留本机，稍后重试';
-  }finally{syncBusy=false;syncControls()}
+  }finally{syncBusy=false}
 }
-$('syncForm').addEventListener('submit',async event=>{
-  event.preventDefault();
-  const token=$('syncCode').value.trim();
-  if(!token||syncToken||syncBusy)return;
-  syncBusy=true;syncControls();
-  todoInputs.forEach(input=>input.disabled=true);
-  $('syncStatus').textContent='正在连接…';
-  try{
-    const data=await todoRequest(token);
-    syncToken=token;pending={};persistSync();applyShared(data.todos);
-    $('syncCode').value='';
-    $('syncStatus').textContent='已连接 · 已载入同行人的共享清单';
-  }catch(error){$('syncStatus').textContent=error.message||'连接失败，请重试'}
-  finally{syncBusy=false;syncControls();todoInputs.forEach(input=>input.disabled=false)}
-});
-$('syncDisconnect').addEventListener('click',()=>{
-  if(syncBusy){$('syncStatus').textContent='正在同步，请稍后断开';return}
-  if(Object.keys(pending).length){$('syncStatus').textContent='仍有修改未上传，联网同步完成后再断开';return}
-  syncToken='';pending={};persistSync();syncControls();
-  $('syncStatus').textContent='已断开 · 后续勾选仅保存在本机';
-});
 todoInputs.forEach(input=>input.addEventListener('change',event=>{saveTodo(event);celebrate(input)}));
 loadTodo();
-syncControls();syncTodos();
+persistSync();syncTodos();
 setInterval(()=>{if(!document.hidden)syncTodos()},15000);
 window.addEventListener('online',syncTodos);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)syncTodos()});
