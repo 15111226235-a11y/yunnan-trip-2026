@@ -6,6 +6,10 @@
 <meta name="theme-color" content="#ffb6d0">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%B8%3C/text%3E%3C/svg%3E">
 <title>风花雪月行纪｜云南漫游手册</title>
+<script>
+// Apply day/night before first paint to avoid a flash (Asia/Shanghai)
+(function(){try{var K="yunnan-trip-mode-v1",p=null;try{p=localStorage.getItem(K)}catch(e){};if(p!=="auto"&&p!=="day"&&p!=="night")p="auto";if(p==="auto"){var t=new Date(),h=new Date(t.getTime()+t.getTimezoneOffset()*60000+8*3600000).getUTCHours();p=(h>=6&&h<19)?"day":"night";}document.documentElement.dataset.mode=p;}catch(e){document.documentElement.dataset.mode="day";}})();
+</script>
 <style>
 :root{
   --bg:#f5f7f2;
@@ -680,6 +684,348 @@ h3{color:#5d2f47}
   .weather-row{grid-template-columns:50px 26px minmax(0,1fr);gap:5px;padding:5px 8px}
   .w-desc{white-space:normal}
 }
+
+/* ============================================================
+   昼夜模式 — 白天 / 黑夜（Asia/Shanghai 自动，可手动切换）
+   ============================================================ */
+.art-day,.art-night{transition:opacity .55s ease}
+.art-night{opacity:0}
+html[data-mode="night"] .art-day{opacity:0}
+html[data-mode="night"] .art-night{opacity:1}
+
+.mode-switch{
+  display:inline-flex;align-items:center;gap:2px;
+  padding:3px;border:1.5px solid #ffd1e0;border-radius:999px;
+  background:rgba(255,255,255,.76);
+  box-shadow:0 6px 14px rgba(206,92,137,.06);
+}
+.mode-btn{
+  display:inline-flex;align-items:center;gap:4px;
+  min-height:30px;padding:3px 9px;border:0;border-radius:999px;
+  background:transparent;color:#7c4b60;font-size:12px;font-weight:800;
+  cursor:pointer;transition:background .2s ease,color .2s ease,box-shadow .2s ease;
+}
+.mode-btn:hover{color:#a52f62}
+.mode-btn svg{width:13px;height:13px;stroke-width:2}
+.mode-btn[aria-pressed="true"]{
+  background:linear-gradient(135deg,#ffb3cd,#f978a9);
+  color:#fff;box-shadow:0 4px 10px rgba(226,84,133,.24);
+}
+.mode-btn:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+
+html[data-mode="night"]{
+  --bg:#221832;
+  --paper:#2e2140;
+  --paper-2:#352646;
+  --ink:#f3dced;
+  --muted:#c0a6bc;
+  --line:#4f3a60;
+  --sage:#ff96bf;
+  --sage-soft:#432c46;
+  --sky:#9bc7ea;
+  --sky-soft:#2b3a55;
+  --sand:#e5b087;
+  --sand-soft:#443427;
+  --violet:#bba4ea;
+  --violet-soft:#3a2a52;
+  --rose:#ff9cc6;
+  --rose-soft:#45293c;
+  --warning:#e6a28f;
+  --warning-bg:#43271f;
+  --shadow:0 18px 44px rgba(5,2,12,.42);
+  --shadow-sm:0 8px 22px rgba(5,2,12,.28);
+  --accent:#ff82b2;
+  --accent-deep:#ffadc9;
+  color-scheme:dark;
+}
+html[data-mode="night"] body{
+  background:
+    radial-gradient(circle at 8% 2%,rgba(182,126,218,.16),transparent 25%),
+    radial-gradient(circle at 96% 8%,rgba(96,142,204,.14),transparent 22%),
+    radial-gradient(circle at 76% 98%,rgba(182,112,158,.13),transparent 26%),
+    radial-gradient(rgba(255,238,252,.05) 1.3px,transparent 1.5px) 0 0/30px 30px,
+    var(--bg);
+}
+
+html[data-mode="night"] .hero{
+  background:linear-gradient(180deg,#2b1b40 0%,#241834 58%,rgba(34,24,50,0) 100%);
+}
+html[data-mode="night"] .hero:before{
+  background:radial-gradient(circle,rgba(193,126,228,.2),transparent 68%);
+}
+html[data-mode="night"] .brandline{color:#ff9bc5}
+html[data-mode="night"] .brandmark{
+  background:linear-gradient(145deg,#67407e,#9b5bb5);
+  border:1.5px solid rgba(255,255,255,.28);
+  box-shadow:0 8px 18px rgba(5,2,12,.35);
+}
+html[data-mode="night"] .brandmark svg{color:#ffdcea}
+html[data-mode="night"] .hero h1{color:#ffe1f1}
+html[data-mode="night"] .hero-sub{color:#cdb3c8}
+html[data-mode="night"] .hero-pill{
+  background:rgba(50,35,71,.8);
+  border:1.5px solid #5b4370;
+  color:#ecd0e1;
+  box-shadow:0 6px 14px rgba(5,2,12,.18);
+}
+html[data-mode="night"] .hero-pill svg{color:#ff96bd}
+
+html[data-mode="night"] .focus{
+  border-color:#664a7f;
+  background:rgba(49,34,70,.9);
+  box-shadow:var(--shadow);
+}
+html[data-mode="night"] .focus:before{
+  background:linear-gradient(105deg,rgba(190,132,235,.28),rgba(122,94,176,.24));
+  box-shadow:0 2px 6px rgba(5,2,12,.28);
+}
+html[data-mode="night"] .focus:after{
+  background:radial-gradient(circle,rgba(225,143,234,.18),transparent 70%);
+}
+html[data-mode="night"] .badge{
+  color:#ffd3e8;border-color:#80518a;
+  background:linear-gradient(120deg,#4c2b5a,#3b2553);
+}
+html[data-mode="night"] .event{color:#f3dced}
+html[data-mode="night"] .count{color:#ff8bb7}
+html[data-mode="night"] .count small{color:#c69ab5}
+html[data-mode="night"] .sub{color:#c4a8be}
+
+html[data-mode="night"] .sticky{
+  background:linear-gradient(to bottom,rgba(34,24,50,.97),rgba(34,24,50,.86) 86%,rgba(34,24,50,0));
+}
+html[data-mode="night"] .tabs a{
+  background:#382848;
+  border-color:#5a4368;
+  color:#efd3e2;
+  box-shadow:0 6px 16px rgba(5,2,12,.18);
+}
+html[data-mode="night"] .tabs a:hover{
+  border-color:#93649a;background:#452e55;transform:translateY(-1px);
+}
+html[data-mode="night"] .tabs svg{color:#f58cba}
+
+html[data-mode="night"] .kicker{color:#f491ba}
+html[data-mode="night"] h2{color:#ffe1f1}
+html[data-mode="night"] h3{color:#ffdcec}
+html[data-mode="night"] .section-note{color:#c6a9c0}
+html[data-mode="night"] .section-icon{
+  background:#3c2b52;border-color:#654a7b;box-shadow:var(--shadow-sm);
+}
+html[data-mode="night"] #map .section-icon{background:rgba(255,229,242,.1);color:#ffa0c5}
+html[data-mode="night"] #flights .section-icon{background:rgba(166,214,255,.1);color:#8cc5ee}
+html[data-mode="night"] #hotels .section-icon{background:rgba(208,190,255,.1);color:#bda7f0}
+html[data-mode="night"] #days .section-icon{background:rgba(255,218,160,.1);color:#e8b372}
+html[data-mode="night"] #todo .section-icon{background:rgba(255,216,232,.1);color:#ff8cb8}
+html[data-mode="night"] #tips .section-icon{background:rgba(188,236,212,.1);color:#8fd3ad}
+
+html[data-mode="night"] .card{
+  background:rgba(52,36,72,.9);
+  border-color:#5c436e;
+  box-shadow:0 12px 28px rgba(5,2,12,.22);
+}
+
+html[data-mode="night"] .overview-map{
+  background:linear-gradient(180deg,#2b1d3f,#241a34);
+  border-color:#4b3159;
+  box-shadow:var(--shadow);
+}
+html[data-mode="night"] .map-shell{
+  background:linear-gradient(160deg,#322346,#2b2039);
+  box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.05);
+}
+html[data-mode="night"] #mapLand stop:nth-child(1){stop-color:#3d2a52}
+html[data-mode="night"] #mapLand stop:nth-child(2){stop-color:#352644}
+html[data-mode="night"] #mapLand stop:nth-child(3){stop-color:#2e213f}
+html[data-mode="night"] #mapWater stop:nth-child(1){stop-color:#2b1f3a}
+html[data-mode="night"] #mapWater stop:nth-child(2){stop-color:#271c36}
+html[data-mode="night"] .map-contour{stroke:#84688f;opacity:.5}
+html[data-mode="night"] .map-context circle{fill:#907896}
+html[data-mode="night"] .map-context text{fill:#b39ab3}
+html[data-mode="night"] .map-datechip rect{fill:rgba(26,18,34,.86);stroke:#7d5b8c}
+html[data-mode="night"] .map-datechip text{fill:#f2dae7}
+html[data-mode="night"] .map-maincity circle{stroke:#dcc8e8}
+html[data-mode="night"] .map-cityname{fill:#ffe0f0}
+html[data-mode="night"] .map-citysub{fill:#c4a0bf}
+html[data-mode="night"] .map-shenzhen text{fill:#cfb2c6}
+html[data-mode="night"] .map-shenzhen circle{fill:#6f9cc4;stroke:#d9e4ef}
+html[data-mode="night"] .map-caption-text{color:#b9a1ba}
+html[data-mode="night"] .map-link{color:#ff8ab8}
+html[data-mode="night"] .legend-item{
+  background:#3a2950;border-color:#574068;color:#d5b8cc;
+}
+
+html[data-mode="night"] .booking-icon.flight{
+  background:linear-gradient(145deg,#254863,#1c3a54);color:#9fd0f2;
+}
+html[data-mode="night"] .booking-icon.hotel{
+  background:linear-gradient(145deg,#58304a,#46253a);color:#ffadd0;
+}
+html[data-mode="night"] .booking-title h3{color:#ffe2f1}
+html[data-mode="night"] .booking-title .date{color:#c6a2ba}
+html[data-mode="night"] .route-time{color:#ff7aa8}
+html[data-mode="night"] .navbtn{
+  background:#422b4a;color:#ffb2d2;
+  border-color:#7a4c77;box-shadow:0 5px 12px rgba(5,2,12,.22);
+}
+html[data-mode="night"] .navbtn:hover{background:#50315a;border-color:#98608f}
+html[data-mode="night"] .navbtn svg{color:#ff9ac3}
+html[data-mode="night"] .risk{
+  background:linear-gradient(135deg,#3a2529,#472436);
+  border-color:#744759;color:#efc5bd;
+}
+html[data-mode="night"] .risk b{color:#ff9fa4}
+
+html[data-mode="night"] .time{color:#e78ab3}
+html[data-mode="night"] .day-card{border-color:#59416d}
+html[data-mode="night"] .day-card:hover{
+  border-color:#8e5a96;box-shadow:0 16px 32px rgba(5,2,12,.28);
+}
+html[data-mode="night"] .day-card:before{
+  background:radial-gradient(circle at 35% 30%,#f2a4c4,#c56a9c);
+  box-shadow:0 0 0 5px #37264b,0 3px 7px rgba(5,2,12,.4);
+}
+html[data-mode="night"] .tag{
+  background:rgba(255,225,240,.1);color:#ffa6c8;border-color:#754b71;
+}
+html[data-mode="night"] .tag.must{
+  background:rgba(255,219,188,.1);color:#ffc5a8;border-color:#8a5d57;
+}
+html[data-mode="night"] .day-summary{color:#e0c6d6}
+html[data-mode="night"] .map-toggle{
+  background:#3a2850;border-color:#8a5385;color:#ffb1d2;
+  box-shadow:0 5px 12px rgba(5,2,12,.2);
+}
+html[data-mode="night"] .map-toggle:hover{background:#472f5b;border-color:#b16a9c}
+html[data-mode="night"] .map-toggle[aria-expanded="true"]{
+  background:linear-gradient(120deg,#743f76,#5e315f);
+  border-color:#c171a7;color:#ffe4f1;
+}
+html[data-mode="night"] .daymap-panel{border-top:1.5px dashed #5a3f62}
+
+html[data-mode="night"] .amap-card{
+  background:#372648;border-color:#5c466d;
+  box-shadow:0 8px 20px rgba(5,2,12,.22);
+}
+html[data-mode="night"] .amap-card-head,html[data-mode="night"] .amap-card-foot{
+  background:rgba(46,33,62,.94);
+}
+html[data-mode="night"] .amap-brand{color:#ffa1c8}
+html[data-mode="night"] .amap-meta{color:#c3a3bd}
+html[data-mode="night"] .amap-mini{
+  background:
+    linear-gradient(30deg,transparent 46%,rgba(220,160,255,.14) 47%,rgba(220,160,255,.14) 50%,transparent 51%) 0 0/82px 66px,
+    linear-gradient(-24deg,transparent 46%,rgba(255,186,140,.1) 47%,rgba(255,186,140,.1) 50%,transparent 51%) 0 0/108px 78px,
+    linear-gradient(#3a2749,#30213e);
+}
+html[data-mode="night"] .amap-mini:before,html[data-mode="night"] .amap-mini:after{
+  border-color:rgba(255,255,255,.12);
+  box-shadow:0 0 0 1px rgba(255,160,192,.14);
+}
+html[data-mode="night"] .route-stroke{
+  box-shadow:0 0 0 2px #2a1c39,0 2px 6px rgba(0,0,0,.32);
+}
+html[data-mode="night"] .poi-dot{
+  border-color:#2b1c3d;
+  box-shadow:0 2px 7px rgba(0,0,0,.4),0 0 0 2px rgba(255,255,255,.14);
+}
+html[data-mode="night"] .poi-label{
+  background:#413056;border-color:#71507d;color:#f0d7e6;
+  box-shadow:0 2px 8px rgba(5,2,12,.24);
+}
+html[data-mode="night"] .amap-card-foot{color:#f4a8c9}
+html[data-mode="night"] .amap-card-foot span:last-child{color:#ff93bc}
+
+html[data-mode="night"] .todo-card{background:#382649}
+html[data-mode="night"] .todo-progress{border-bottom:1.5px dashed #5a3e61}
+html[data-mode="night"] .progress-copy{color:#d0a9c4}
+html[data-mode="night"] .progress-copy b{color:#ff87b4}
+html[data-mode="night"] .progress-track{
+  background:#523153;box-shadow:inset 0 1px 3px rgba(0,0,0,.35);
+}
+html[data-mode="night"] .todo-item{border-bottom:1.5px dashed #5a3f5d}
+html[data-mode="night"] .todo-item input{
+  background:#2d2039;border-color:#a86088;
+  box-shadow:0 3px 9px rgba(5,2,12,.22);
+}
+html[data-mode="night"] .todo-item input:hover{background:#3d2b4a;border-color:#e290b5}
+html[data-mode="night"] .todo-item input:checked{
+  background:linear-gradient(135deg,#ff8fb8,#ee4f8a);
+  border-color:#ee4f8a;
+  box-shadow:0 4px 12px rgba(226,64,128,.3);
+}
+html[data-mode="night"] .todo-item input:checked + span{
+  color:#cba4ba;text-decoration-color:#e87fa9;
+}
+html[data-mode="night"] .todo-item input:checked + span:after{color:#ff8bb7}
+
+html[data-mode="night"] .tip-icon{
+  background:#3a2a4a;border-color:#6d4a78;color:#ffa5ca;
+  box-shadow:0 5px 12px rgba(5,2,12,.2);
+}
+html[data-mode="night"] .grid .tip-card:nth-child(1) .tip-icon{background:#472e47;color:#ff9ec4}
+html[data-mode="night"] .grid .tip-card:nth-child(2) .tip-icon{background:#46352d;color:#e6b26b}
+html[data-mode="night"] .grid .tip-card:nth-child(3) .tip-icon{background:#3b2a52;color:#b99feb}
+html[data-mode="night"] .grid .tip-card:nth-child(4) .tip-icon{background:#29384d;color:#83bce8}
+html[data-mode="night"] .tip-card p{color:#d3b9cc}
+html[data-mode="night"] .footer-note{color:#9b7c9a}
+
+html[data-mode="night"] .weather-card:after{
+  background:radial-gradient(circle,rgba(198,140,238,.2),transparent 68%);
+}
+html[data-mode="night"] .weather-card:nth-child(2):after{
+  background:radial-gradient(circle,rgba(126,172,230,.18),transparent 68%);
+}
+html[data-mode="night"] .weather-card:nth-child(3):after{
+  background:radial-gradient(circle,rgba(184,150,240,.16),transparent 68%);
+}
+html[data-mode="night"] .weather-card:nth-child(4):after{
+  background:radial-gradient(circle,rgba(238,176,130,.16),transparent 68%);
+}
+html[data-mode="night"] .weather-en{color:#c7a3ba}
+html[data-mode="night"] .weather-row{
+  background:rgba(50,35,70,.56);border-color:#6b4a74;
+}
+html[data-mode="night"] .w-when{color:#ff9dc4}
+html[data-mode="night"] .w-when small{color:#c39bb4}
+html[data-mode="night"] .w-when.is-today{color:#ff7bb0}
+html[data-mode="night"] .w-info b{color:#f6e0ef}
+html[data-mode="night"] .w-info b small{color:#c2a0b8}
+html[data-mode="night"] .w-desc{color:#c1a6bc}
+html[data-mode="night"] .weather-state{color:#c9a9c0}
+html[data-mode="night"] .weather-state .weather-retry{
+  background:#3b294e;border-color:#9a5d91;color:#ffb4d5;
+  box-shadow:0 4px 10px rgba(5,2,12,.2);
+}
+html[data-mode="night"] .weather-state .weather-retry:hover{background:#4a315d}
+html[data-mode="night"] .weather-refresh{color:#b795b2}
+
+html[data-mode="night"] .mode-switch{
+  background:rgba(45,31,64,.82);border-color:#65497b;
+  box-shadow:0 6px 16px rgba(5,2,12,.24);
+}
+html[data-mode="night"] .mode-btn{color:#d8bad1}
+html[data-mode="night"] .mode-btn:hover{color:#ffd4e8}
+html[data-mode="night"] .mode-btn[aria-pressed="true"]{
+  background:linear-gradient(135deg,#b368d4,#7f4d9f);
+  color:#fff;box-shadow:0 4px 12px rgba(12,3,20,.45);
+}
+
+html[data-mode="night"] .art-back{fill:#4b3558;opacity:.7}
+html[data-mode="night"] .art-mid{fill:#413056;opacity:.9}
+html[data-mode="night"] .art-front{fill:#352847;opacity:.95}
+html[data-mode="night"] #artPeak stop:nth-child(1){stop-color:#dec7f0}
+html[data-mode="night"] #artPeak stop:nth-child(2){stop-color:#b589d7}
+html[data-mode="night"] #artPeak stop:nth-child(3){stop-color:#7d4e9e}
+html[data-mode="night"] .art-snow{fill:#efe1fa}
+html[data-mode="night"] .hero-art svg{
+  filter:drop-shadow(0 10px 20px rgba(4,0,10,.35));
+}
+
+@media(max-width:420px){
+  .mode-switch{max-width:100%}
+  .mode-btn{padding:3px 7px;font-size:11px}
+}
 </style>
 </head>
 <body>
@@ -696,6 +1042,8 @@ h3{color:#5d2f47}
   <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
   <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
   <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></symbol>
+  <symbol id="i-auto" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v5h-5"/></symbol>
   <symbol id="i-shirt" viewBox="0 0 24 24"><path d="m8 4 4 2 4-2 5 4-3 4-2-1v9H8v-9l-2 1-3-4Z"/></symbol>
   <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></symbol>
   <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 3h7v7M10 14 21 3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></symbol>
@@ -714,6 +1062,11 @@ h3{color:#5d2f47}
         <div class="hero-meta">
           <span class="hero-pill"><svg class="icon"><use href="#i-calendar"/></svg>8 天 · 7 晚</span>
           <span class="hero-pill"><svg class="icon"><use href="#i-pin"/></svg>昆明 · 丽江 · 香格里拉</span>
+          <div class="mode-switch" role="group" aria-label="昼夜显示模式">
+            <button class="mode-btn" type="button" data-mode="auto" aria-pressed="true"><svg class="icon" aria-hidden="true"><use href="#i-auto"/></svg><span>自动</span></button>
+            <button class="mode-btn" type="button" data-mode="day" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-sun"/></svg><span>白天</span></button>
+            <button class="mode-btn" type="button" data-mode="night" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-moon"/></svg><span>黑夜</span></button>
+          </div>
         </div>
       </div>
 
@@ -725,34 +1078,57 @@ h3{color:#5d2f47}
               <stop offset=".55" stop-color="#ff8fb8"/>
               <stop offset="1" stop-color="#f2639b"/>
             </linearGradient>
+            <radialGradient id="moonGlow" cx=".5" cy=".5" r=".5">
+              <stop offset="0" stop-color="#ffe9a8" stop-opacity=".5"/>
+              <stop offset="1" stop-color="#ffe9a8" stop-opacity="0"/>
+            </radialGradient>
+            <mask id="moonMask">
+              <rect width="250" height="200" fill="#fff"/>
+              <circle cx="216" cy="29" r="13" fill="#000"/>
+            </mask>
           </defs>
           <path d="M166 18l1.7 3.6 4 .7-2.8 2.8.6 3.9-3.5-1.8-3.4 1.8.5-3.9-2.9-2.8 4-.7Z" fill="#ff9fc2"/>
-          <g class="art-sun">
-            <circle cx="211" cy="39" r="17" fill="#ffd46b"/>
-            <circle cx="205" cy="36" r="2" fill="#7c4a32"/>
-            <circle cx="217" cy="36" r="2" fill="#7c4a32"/>
-            <path d="M206 44q5 4.5 10 0" stroke="#7c4a32" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-            <circle cx="198" cy="45" r="3.2" fill="#ff9aa8" opacity=".8"/>
-            <circle cx="224" cy="45" r="3.2" fill="#ff9aa8" opacity=".8"/>
+          <g class="art-day">
+            <g class="art-sun">
+              <circle cx="211" cy="39" r="17" fill="#ffd46b"/>
+              <circle cx="205" cy="36" r="2" fill="#7c4a32"/>
+              <circle cx="217" cy="36" r="2" fill="#7c4a32"/>
+              <path d="M206 44q5 4.5 10 0" stroke="#7c4a32" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+              <circle cx="198" cy="45" r="3.2" fill="#ff9aa8" opacity=".8"/>
+              <circle cx="224" cy="45" r="3.2" fill="#ff9aa8" opacity=".8"/>
+            </g>
+            <g class="art-cloud" fill="#fff">
+              <circle cx="42" cy="66" r="11"/>
+              <circle cx="60" cy="56" r="16"/>
+              <circle cx="80" cy="65" r="11"/>
+              <rect x="31" y="63" width="60" height="14" rx="7"/>
+              <path d="M56 79c-2.2-3.2-8.2-2.4-8.2 2 0 3.7 8.2 7.4 8.2 7.4s8.2-3.7 8.2-7.4c0-4.4-6-5.2-8.2-2Z" fill="#ff8fb5"/>
+            </g>
           </g>
-          <g class="art-cloud" fill="#fff">
-            <circle cx="42" cy="66" r="11"/>
-            <circle cx="60" cy="56" r="16"/>
-            <circle cx="80" cy="65" r="11"/>
-            <rect x="31" y="63" width="60" height="14" rx="7"/>
-            <path d="M56 79c-2.2-3.2-8.2-2.4-8.2 2 0 3.7 8.2 7.4 8.2 7.4s8.2-3.7 8.2-7.4c0-4.4-6-5.2-8.2-2Z" fill="#ff8fb5"/>
+          <g class="art-night" opacity="0">
+            <circle cx="162" cy="28" r="1.35" fill="#fff" opacity=".9"/>
+            <circle cx="178" cy="52" r="1.1" fill="#fff" opacity=".72"/>
+            <circle cx="236" cy="75" r="1.4" fill="#fff" opacity=".88"/>
+            <circle cx="94" cy="20" r="1.2" fill="#fff" opacity=".82"/>
+            <circle cx="72" cy="42" r="1.05" fill="#fff" opacity=".65"/>
+            <circle cx="48" cy="30" r="1.35" fill="#fff" opacity=".78"/>
+            <circle cx="122" cy="49" r="1" fill="#fff" opacity=".6"/>
+            <path d="M138 14l1.1 2.6 2.6 1.1-2.6 1.1-1.1 2.6-1.1-2.6-2.6-1.1 2.6-1.1Z" fill="#ffd9ec"/>
+            <path d="M231 25l1 2.4 2.4 1-2.4 1-1 2.4-1-2.4-2.4-1 2.4-1Z" fill="#e8dcff" opacity=".95"/>
+            <circle cx="204" cy="44" r="27" fill="url(#moonGlow)"/>
+            <circle cx="204" cy="44" r="17" fill="#ffe9a8" mask="url(#moonMask)"/>
           </g>
-          <path d="M8 188Q70 134 132 182T252 180v20H8Z" fill="#dcc9ee" opacity=".5"/>
-          <path d="M28 194Q92 152 158 190T252 188v12H28Z" fill="#cfe5f2" opacity=".55"/>
-          <path d="M78 190L152 82 226 190Z" fill="url(#artPeak)"/>
-          <path d="M152 82l-19 30 10-8 9 10 10-11 11 9Z" fill="#fff"/>
+          <path class="art-back" d="M8 188Q70 134 132 182T252 180v20H8Z" fill="#dcc9ee" opacity=".5"/>
+          <path class="art-mid" d="M28 194Q92 152 158 190T252 188v12H28Z" fill="#cfe5f2" opacity=".55"/>
+          <path class="art-peak" d="M78 190L152 82 226 190Z" fill="url(#artPeak)"/>
+          <path class="art-snow" d="M152 82l-19 30 10-8 9 10 10-11 11 9Z" fill="#fff"/>
           <circle cx="142" cy="134" r="2.4" fill="#6d2947"/>
           <circle cx="162" cy="134" r="2.4" fill="#6d2947"/>
           <circle cx="134" cy="143" r="3.5" fill="#ffd9e3" opacity=".9"/>
           <circle cx="170" cy="143" r="3.5" fill="#ffd9e3" opacity=".9"/>
           <path d="M146 142q6 7.5 12 0" stroke="#6d2947" stroke-width="1.8" fill="none" stroke-linecap="round"/>
           <path d="M152 160c0-4.1-7-3.3-7 1.2 0 4 7 8.3 7 8.3s7-4.3 7-8.3c0-4.5-7-5.3-7-1.2Z" fill="#fff" opacity=".95"/>
-          <path d="M4 202Q58 180 100 194Q156 208 198 196Q234 186 254 200v2H4Z" fill="#c5e3c6" opacity=".75"/>
+          <path class="art-front" d="M4 202Q58 180 100 194Q156 208 198 196Q234 186 254 200v2H4Z" fill="#c5e3c6" opacity=".75"/>
           <circle cx="64" cy="190" r="2.2" fill="#ff9dbf"/>
           <circle cx="82" cy="199" r="2.2" fill="#ffd94d"/>
           <circle cx="204" cy="191" r="2.2" fill="#ff9dbf"/>
@@ -1058,6 +1434,44 @@ const events=[
   ["2026-10-03T00:30:00+08:00","抵达深圳宝安 T3"]
 ];
 const $=id=>document.getElementById(id);
+
+// Day / night display mode (Asia/Shanghai, manual override persisted)
+const MODE_KEY="yunnan-trip-mode-v1";
+let modePref="auto";
+try{modePref=localStorage.getItem(MODE_KEY)||"auto"}catch(e){}
+if(!["auto","day","night"].includes(modePref))modePref="auto";
+const themeMeta=document.querySelector('meta[name="theme-color"]');
+const artBox=document.querySelector(".hero-art");
+function shanghaiHour(){
+  const d=new Date(Date.now()+new Date().getTimezoneOffset()*60000+8*3600000);
+  return d.getUTCHours();
+}
+function currentMode(){
+  return modePref==="auto"?(shanghaiHour()>=6&&shanghaiHour()<19?"day":"night"):modePref;
+}
+function applyModeUI(){
+  const m=currentMode();
+  document.documentElement.dataset.mode=m;
+  if(themeMeta)themeMeta.setAttribute("content",m==="night"?"#241832":"#ffb6d0");
+  document.querySelectorAll(".mode-btn").forEach(btn=>{
+    const pref=btn.dataset.mode;
+    btn.setAttribute("aria-pressed",String(pref==="auto"?modePref==="auto":m===pref));
+  });
+  if(artBox){
+    artBox.setAttribute("aria-label",m==="night"
+      ?"深蓝紫色夜空下，月亮与星星环绕的卡通雪山小插画"
+      :"粉色卡通云南小雪山顶着太阳和云朵的小插画");
+  }
+}
+document.querySelectorAll(".mode-btn").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    modePref=btn.dataset.mode;
+    try{localStorage.setItem(MODE_KEY,modePref)}catch(e){}
+    applyModeUI();
+  });
+});
+applyModeUI();
+setInterval(()=>{if(modePref==="auto")applyModeUI();},60000);
 
 function tick(){
   const now=Date.now();
