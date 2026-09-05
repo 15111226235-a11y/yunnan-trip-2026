@@ -8,7 +8,7 @@
 
 - `yunnan-trip-site/` — Cloudflare Worker / 静态站点项目根目录（`wrangler.jsonc` 所在位置）
   - `public/index.html` — **真正被部署的唯一页面**，所有前端内容、样式与脚本都在此单文件内
-  - `worker.mjs` — 共享待办 API，依赖 D1 `DB` 绑定与 `SYNC_CODE` Secret
+  - `worker.mjs` — 公开共享待办 API，依赖 D1 `DB` 绑定；所有访客均可读取和修改，无需同步码
   - `schema.sql` — D1 初始化表，不删除已有记录
   - `index.html` — `public/index.html` 的完全一致副本，当前未参与部署
   - `README.md` — 部署与页面说明
