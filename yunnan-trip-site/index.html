@@ -8,7 +8,7 @@
 <title>风花雪月行纪｜云南漫游手册</title>
 <script>
 // Apply day/night before first paint to avoid a flash (Asia/Shanghai)
-(function(){try{var K="yunnan-trip-mode-v1",p=null;try{p=localStorage.getItem(K)}catch(e){};if(p!=="auto"&&p!=="day"&&p!=="night")p="auto";if(p==="auto"){var t=new Date(),h=new Date(t.getTime()+t.getTimezoneOffset()*60000+8*3600000).getUTCHours();p=(h>=6&&h<19)?"day":"night";}document.documentElement.dataset.mode=p;}catch(e){document.documentElement.dataset.mode="day";}})();
+(function(){try{var K="yunnan-trip-mode-v1",p=null;try{p=localStorage.getItem(K)}catch(e){};if(p!=="auto"&&p!=="day"&&p!=="night")p="auto";if(p==="auto"){var h=new Date(Date.now()+8*3600000).getUTCHours();p=(h>=6&&h<19)?"day":"night";}document.documentElement.dataset.mode=p;}catch(e){document.documentElement.dataset.mode="day";}})();
 </script>
 <style>
 :root{
@@ -1744,7 +1744,7 @@ if(!["auto","day","night"].includes(modePref))modePref="auto";
 const themeMeta=document.querySelector('meta[name="theme-color"]');
 const artBox=document.querySelector(".hero-art");
 function shanghaiHour(){
-  const d=new Date(Date.now()+new Date().getTimezoneOffset()*60000+8*3600000);
+  const d=new Date(Date.now()+8*3600000);
   return d.getUTCHours();
 }
 function currentMode(){
@@ -1790,7 +1790,7 @@ tick();setInterval(tick,1000);
 // Day rail: mark the trip day that matches "today" in Asia/Shanghai
 (function markToday(){
   try{
-    const now=new Date(Date.now()+new Date().getTimezoneOffset()*60000+8*3600000);
+    const now=new Date(Date.now()+8*3600000);
     const key=now.toISOString().slice(5,10).replace("-","/");
     document.querySelectorAll(".day-rail").forEach(rail=>{
       const dateEl=rail.querySelector(".rail-date b");
