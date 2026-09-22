@@ -134,7 +134,11 @@ h3{font-size:17px;line-height:1.45;margin:0 0 7px}
 .booking-icon{position:absolute;left:18px;top:18px;width:34px;height:34px;border-radius:12px;display:grid;place-items:center}
 .booking-icon.flight{background:var(--sky-soft);color:#567e88}
 .booking-icon.hotel{background:var(--sage-soft);color:#4f7462}
+.booking-icon.train{background:var(--violet-soft);color:#7a5fae}
 .booking-icon svg{width:18px;height:18px}
+.transport-sub{display:flex;align-items:center;gap:8px;margin:20px 2px 10px;font-size:15px;font-weight:900;color:var(--ink)}
+.transport-sub:first-of-type{margin-top:4px}
+.transport-sub svg{width:16px;height:16px;color:var(--sage)}
 .booking-title{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
 .booking-title .date{font-size:12px;color:var(--muted);font-weight:700;white-space:nowrap}
 .booking-card .mini a.tel{color:var(--sage);font-weight:800;text-decoration:none;border-bottom:1.5px solid currentColor;padding-bottom:1px}
@@ -375,7 +379,7 @@ h3{color:#5d2f47}
 }
 .section-icon svg{color:inherit}
 #map .section-icon{background:#ffe7f0;color:#e0508a}
-#flights .section-icon{background:#e2f3fc;color:#4d8fb4}
+#transport .section-icon{background:#e2f3fc;color:#4d8fb4}
 #hotels .section-icon{background:#ede6fa;color:#8b6cbb}
 #days .section-icon{background:#fff0d8;color:#d18b3f}
 #todo .section-icon{background:#ffe1ea;color:#dc4c86}
@@ -815,7 +819,8 @@ html[data-mode="night"] .section-icon{
   background:#3c2b52;border-color:#654a7b;box-shadow:var(--shadow-sm);
 }
 html[data-mode="night"] #map .section-icon{background:rgba(255,229,242,.1);color:#ffa0c5}
-html[data-mode="night"] #flights .section-icon{background:rgba(166,214,255,.1);color:#8cc5ee}
+html[data-mode="night"] #transport .section-icon{background:rgba(166,214,255,.1);color:#8cc5ee}
+html[data-mode="night"] .booking-icon.train{background:rgba(208,190,255,.12);color:#c3aef5}
 html[data-mode="night"] #hotels .section-icon{background:rgba(208,190,255,.1);color:#bda7f0}
 html[data-mode="night"] #days .section-icon{background:rgba(255,218,160,.1);color:#e8b372}
 html[data-mode="night"] #todo .section-icon{background:rgba(255,216,232,.1);color:#ff8cb8}
@@ -1301,6 +1306,7 @@ html[data-mode="night"] .all-done-note b{color:#ff8cb8}
   <symbol id="i-mountain" viewBox="0 0 24 24"><path d="M3 19 9.2 7.5l3.1 5L15 8l6 11Z"/><path d="m7.8 10 1.4-2.5 1.5 2.5"/></symbol>
   <symbol id="i-map" viewBox="0 0 24 24"><path d="m3 6 5-2 8 2 5-2v14l-5 2-8-2-5 2Z"/><path d="M8 4v14M16 6v14"/></symbol>
   <symbol id="i-plane" viewBox="0 0 24 24"><path d="M22 2 11 13"/><path d="m22 2-7 20-4-9-9-4Z"/></symbol>
+  <symbol id="i-train" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="14" rx="3"/><path d="M8 21l2-4M16 21l-2-4M5 10h14"/><circle cx="9" cy="13.5" r="1"/><circle cx="15" cy="13.5" r="1"/></symbol>
   <symbol id="i-bed" viewBox="0 0 24 24"><path d="M3 19v-8M21 19v-6a2 2 0 0 0-2-2H8a3 3 0 0 0-3 3v1"/><path d="M3 15h18M7 11V7h5a3 3 0 0 1 3 3v1"/></symbol>
   <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="m8 12 2.5 2.5L16 9"/></symbol>
@@ -1416,7 +1422,7 @@ html[data-mode="night"] .all-done-note b{color:#ff8cb8}
   <nav class="sticky" aria-label="页面导航">
     <div class="tabs">
       <a href="#map"><svg class="icon"><use href="#i-map"/></svg>总览</a>
-      <a href="#flights"><svg class="icon"><use href="#i-plane"/></svg>航班</a>
+      <a href="#transport"><svg class="icon"><use href="#i-plane"/></svg>交通</a>
       <a href="#hotels"><svg class="icon"><use href="#i-bed"/></svg>酒店</a>
       <a href="#days"><svg class="icon"><use href="#i-calendar"/></svg>每日安排</a>
       <a href="#todo"><svg class="icon"><use href="#i-check"/></svg>待办清单</a>
@@ -1466,11 +1472,12 @@ html[data-mode="night"] .all-done-note b{color:#ff8cb8}
     </div>
   </section>
 
-  <section id="flights">
+  <section id="transport">
     <div class="section-head">
-      <div class="section-title-wrap"><div class="kicker">往返大交通</div><h2>航班</h2></div>
+      <div class="section-title-wrap"><div class="kicker">往返大交通</div><h2>交通</h2></div>
       <div class="section-icon"><svg class="icon"><use href="#i-plane"/></svg></div>
     </div>
+    <div class="transport-sub"><svg class="icon"><use href="#i-plane"/></svg>航班</div>
     <div class="grid">
       <article class="card booking-card">
         <div class="booking-icon flight"><svg class="icon"><use href="#i-plane"/></svg></div>
@@ -1483,6 +1490,28 @@ html[data-mode="night"] .all-done-note b{color:#ff8cb8}
         <div class="booking-title"><h3>吉祥航空 HO1946</h3><span class="date">10/02 · 周五</span></div>
         <div class="route-text"><span class="route-time">22:00</span> 丽江三义 <span class="mini">→</span> <span class="route-time">00:30</span> 深圳宝安 T3</div>
         <p class="mini">10/03 抵达 · 已出票 · 北京时间 UTC+8</p>
+      </article>
+    </div>
+    <div class="transport-sub"><svg class="icon"><use href="#i-train"/></svg>高铁 / 动车</div>
+    <p class="section-note">🚄 车次与发到时间待补充；你发我后我会填入这里，并同步更新每日安排和「下一程」提醒。</p>
+    <div class="grid">
+      <article class="card booking-card">
+        <div class="booking-icon train"><svg class="icon"><use href="#i-train"/></svg></div>
+        <div class="booking-title"><h3>9/26 昆明 → 丽江</h3><span class="date">09/26</span></div>
+        <div class="route-text">昆明站 <span class="mini">→</span> 丽江站</div>
+        <p class="mini">车次与发到时间待补充；到丽江站后打车去大研古城约 20–30 分钟。</p>
+      </article>
+      <article class="card booking-card">
+        <div class="booking-icon train"><svg class="icon"><use href="#i-train"/></svg></div>
+        <div class="booking-title"><h3>9/29 丽江 → 香格里拉</h3><span class="date">09/29</span></div>
+        <div class="route-text">丽江站 <span class="mini">→</span> 香格里拉站</div>
+        <p class="mini">车次与发到时间待补充；到站后由木言观阙接站。</p>
+      </article>
+      <article class="card booking-card">
+        <div class="booking-icon train"><svg class="icon"><use href="#i-train"/></svg></div>
+        <div class="booking-title"><h3>10/1 香格里拉 → 丽江</h3><span class="date">10/01</span></div>
+        <div class="route-text">香格里拉站 <span class="mini">→</span> 丽江站</div>
+        <p class="mini">车次与发到时间待补充；到丽江站后打车去束河约 30 分钟。</p>
       </article>
     </div>
   </section>
@@ -1537,12 +1566,12 @@ html[data-mode="night"] .all-done-note b{color:#ff8cb8}
           <ol class="day-plan">
             <li><span class="plan-time">09:35</span><p>抵达昆明长水，先到酒店寄存行李</p></li>
             <li><span class="plan-time">15:30</span><p>昆明老街：钱王街 → 文明街 → 光华街</p></li>
-            <li><span class="plan-time">17:00</span><p>昆明老街吃 80 元档过桥米线：建新园（老街店，宝善街171-172号）或桥香园，慢慢吃</p></li>
-            <li><span class="plan-time">18:20</span><p>打车去斗南花市（约 30–40 分钟）</p></li>
-            <li><span class="plan-time">19:00</span><p>斗南花市：白天零售先逛逛，最热闹的夜场约 20:40 才开市，想买花拍照可顺手带一小束</p></li>
+            <li><span class="plan-time">17:30</span><p>上坐·云南传统过桥米线（顺城店）：五华区顺城购物中心 K 座 4 楼 C4-01A，晚市 17:30 开，建议提前取号</p></li>
+            <li><span class="plan-time">18:45</span><p>打车去斗南花市（约 30–40 分钟）</p></li>
+            <li><span class="plan-time">19:30</span><p>斗南花市：白天零售先逛逛，最热闹的夜场约 20:40 才开市，想买花拍照可顺手带一小束</p></li>
           </ol>
-          <p class="mini">🍜 若你听说的 80 元套餐不是建新园/桥香园，把店名发我改导航；建新园老街店离昆明老街步行可达，吃完去斗南顺路。</p>
-          <div class="day-actions"><a class="navbtn" href="https://uri.amap.com/search?keyword=%E5%85%A8%E5%AD%A3%E6%98%86%E6%98%8E%E7%81%AB%E8%BD%A6%E7%AB%99%E5%8C%97%E5%B9%BF%E5%9C%BA%E9%85%92%E5%BA%97&city=%E6%98%86%E6%98%8E&callnative=1" target="_blank" rel="noopener"><svg class="icon"><use href="#i-pin"/></svg>导航酒店</a><a class="navbtn" href="https://uri.amap.com/search?keyword=%E5%BB%BA%E6%96%B0%E5%9B%AD%E8%BF%87%E6%A1%A5%E7%B1%B3%E7%BA%BF&city=%E6%98%86%E6%98%8E&callnative=1" target="_blank" rel="noopener"><svg class="icon"><use href="#i-pin"/></svg>导航建新园米线</a></div>
+          <p class="mini">🍜 上坐顺城店离昆明老街/南屏街步行约 10 分钟；晚市 17:30 开始，饭点排队较久，建议 17:20 前到取号。若想中午吃，午市 11:00–15:00。</p>
+          <div class="day-actions"><a class="navbtn" href="https://uri.amap.com/search?keyword=%E5%85%A8%E5%AD%A3%E6%98%86%E6%98%8E%E7%81%AB%E8%BD%A6%E7%AB%99%E5%8C%97%E5%B9%BF%E5%9C%BA%E9%85%92%E5%BA%97&city=%E6%98%86%E6%98%8E&callnative=1" target="_blank" rel="noopener"><svg class="icon"><use href="#i-pin"/></svg>导航酒店</a><a class="navbtn" href="https://uri.amap.com/search?keyword=%E4%B8%8A%E5%9D%90%E9%A1%BA%E5%9F%8E%E8%B4%AD%E7%89%A9%E4%B8%AD%E5%BF%83&city=%E6%98%86%E6%98%8E&callnative=1" target="_blank" rel="noopener"><svg class="icon"><use href="#i-pin"/></svg>导航上坐米线</a></div>
         </article>
       </div>
 
@@ -1555,7 +1584,7 @@ html[data-mode="night"] .all-done-note b{color:#ff8cb8}
             <li><span class="plan-time">08:30</span><p>翠湖公园</p></li>
             <li><span class="plan-time">10:10</span><p>黄公东街：街景、咖啡、彩色建筑拍照</p></li>
             <li><span class="plan-time">11:30</span><p>午饭，回酒店取行李</p></li>
-            <li><span class="plan-time">14:00–16:00</span><p>昆明 → 丽江动车（全程约 3.5–4 小时，优先昆明站发车班次；车票约 9/12 起售），入住甜蜜八月</p></li>
+            <li><span class="plan-time">下午</span><p>昆明 → 丽江动车（车次与发到时间待补，约 3.5–4 小时），入住甜蜜八月</p></li>
             <li><span class="plan-time">晚上</span><p>忠义市场觅食（客栈步行 1–3 分钟）：丽江粑粑、鸡豆凉粉、烤乳扇、烤洋芋、酸野水果、腊排骨/菌子；吃完再进古城散步</p></li>
           </ol>
           <p class="mini">🍢 夜市 18:00–21:00 最热闹；先看明码标价再买，水果和菌子按需称重。早上也有早点摊，想吃本地早餐可以再来一次。</p>
@@ -1618,7 +1647,7 @@ html[data-mode="night"] .all-done-note b{color:#ff8cb8}
           <div class="day-tags"><span class="tag">转场</span><span class="tag">香格里拉</span></div>
           <h3>丽江 → 香格里拉</h3>
           <ol class="day-plan">
-            <li><span class="plan-time">上午</span><p>丽江 → 香格里拉动车，争取 11:00–12:00 到站</p></li>
+            <li><span class="plan-time">上午</span><p>丽江 → 香格里拉动车（车次与发到时间待补），到站后木言观阙接站</p></li>
             <li><span class="plan-time">到站后</span><p>木言观阙接站、入住、午饭；刚到高海拔多休息</p></li>
             <li><span class="plan-time">15:00</span><p>独克宗古城：小巷 → 四方街 → 月光广场 → 龟山公园大转经筒</p></li>
             <li><span class="plan-time">17:30</span><p>再上龟山公园，看蓝调与亮灯</p></li>
@@ -1656,8 +1685,8 @@ html[data-mode="night"] .all-done-note b{color:#ff8cb8}
           <ol class="day-plan">
             <li><span class="plan-time">08:00</span><p>早餐</p></li>
             <li><span class="plan-time">08:30</span><p>独克宗最后一小圈 / 咖啡</p></li>
-            <li><span class="plan-time">10:00</span><p>木言观阙送站，10:00–12:00 动车返丽江（约 9/17 起售，放票后优先锁定班次）</p></li>
-            <li><span class="plan-time">13:30</span><p>抵达束河入住，午饭后慢休</p></li>
+            <li><span class="plan-time">上午</span><p>木言观阙送站，香格里拉 → 丽江动车（车次与发到时间待补）</p></li>
+            <li><span class="plan-time">到站后</span><p>打车去束河入住（约 30 分钟），午饭后慢休</p></li>
             <li><span class="plan-time">15:00</span><p>青龙桥 → 九鼎龙潭 → 四方街 → 咖啡 / 手工</p></li>
             <li><span class="plan-time">18:00</span><p>阿婆吉来腊排骨（束河店）：东康小道东康六组44号，束河鼎业公司对面</p></li>
             <li><span class="plan-time">晚上</span><p>20:00 前后到四方听音广场看纳西打跳（时间以现场为准）</p></li>
@@ -1707,7 +1736,7 @@ html[data-mode="night"] .all-done-note b{color:#ff8cb8}
         <label class="todo-item"><input type="checkbox" data-todo="transfer"><span>确认 9/29、10/1 丽江↔香格里拉动车班次（约 9/15、9/17 起售），并约木言观阙接站/送站</span></label>
         <label class="todo-item"><input type="checkbox" data-todo="hotel-phone"><span>补齐各酒店官方/订单电话</span></label>
         <label class="todo-item"><input type="checkbox" data-todo="holiday-check"><span>临近出发核对中秋、国庆期间景区预约与交通管控（含黑龙潭古维费查验口径）</span></label>
-        <label class="todo-item"><input type="checkbox" data-todo="food-check"><span>9/28 前确认俄古罗限量版烧烤是否营业（地图标记暂停营业），并确认昆明过桥米线 80 元套餐的具体门店</span></label>
+        <label class="todo-item"><input type="checkbox" data-todo="food-check"><span>9/28 前确认俄古罗限量版烧烤是否营业（地图标记暂停营业）；过桥米线已定为上坐顺城店</span></label>
       </div>
     </div>
   </section>
@@ -1734,11 +1763,13 @@ html[data-mode="night"] .all-done-note b{color:#ff8cb8}
 const events=[
   ["2026-09-25T07:25:00+08:00","HU7767 起飞 · 深圳宝安 T3"],
   ["2026-09-25T09:35:00+08:00","抵达昆明长水"],
-  ["2026-09-26T12:00:00+08:00","丽江客栈入住窗口开始"],
+  ["2026-09-26T14:00:00+08:00","昆明 → 丽江动车（班次待补）"],
   ["2026-09-28T06:50:00+08:00","出发玉龙雪山 · 新游客中心"],
   ["2026-09-28T08:00:00+08:00","雪山小火车发车"],
   ["2026-09-28T10:00:00+08:00","冰川公园大索道（预约 10:00–10:30）"],
+  ["2026-09-29T09:30:00+08:00","丽江 → 香格里拉动车（班次待补）"],
   ["2026-09-29T14:00:00+08:00","香格里拉客栈入住窗口开始"],
+  ["2026-10-01T10:00:00+08:00","香格里拉 → 丽江动车（班次待补）"],
   ["2026-10-01T14:00:00+08:00","丽江安宿入住窗口开始"],
   ["2026-10-02T09:00:00+08:00","白沙古镇 · 云堤岸咖啡"],
   ["2026-10-02T22:00:00+08:00","HO1946 起飞 · 丽江三义"],
