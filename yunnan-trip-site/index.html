@@ -1171,6 +1171,17 @@ html[data-mode="night"] .weather-row-compact .w-info b small{color:#c39cb4}
 .day-plan .plan-time{display:block;min-width:0;font-size:12px;font-weight:900;color:#d25d8b;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .day-plan p{margin:1px 0 0;color:#394b42;font-size:13.5px;line-height:1.6;min-width:0}
 .day-plan .plan-time + p{margin-top:-1px}
+.timeline .item{scroll-margin-top:100px}
+.day-card h3{padding-right:42px}
+.day-toggle{position:absolute;top:10px;right:10px;z-index:3;display:grid;place-items:center;width:34px;height:34px;padding:0;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--muted);cursor:pointer;transition:background .2s ease,border-color .2s ease,transform .2s ease}
+.day-toggle:hover{background:var(--paper-2);border-color:var(--sage);color:var(--sage)}
+.day-toggle:active{transform:scale(.94)}
+.day-toggle:focus-visible{outline:2px solid var(--sage);outline-offset:2px}
+.day-toggle .icon{width:15px;height:15px;transition:transform .2s ease}
+.day-card.is-collapsed .day-toggle .icon{transform:rotate(-90deg)}
+.day-body{display:block}
+.day-card.is-collapsed .day-body{display:none}
+.day-card.is-collapsed{padding-bottom:14px}
 
 /* 酒店 / 航班：图标独立一列，文字永不压到图标上 */
 .booking-card{display:grid;grid-template-columns:44px minmax(0,1fr);gap:13px;align-items:flex-start;padding:17px 16px;min-height:0}
@@ -1404,7 +1415,6 @@ html[data-mode="night"] .all-done-note b{color:#ff8cb8}
 <div class="wrap">
   <nav class="sticky" aria-label="页面导航">
     <div class="tabs">
-      <a href="#weather"><svg class="icon"><use href="#i-sun"/></svg>天气</a>
       <a href="#map"><svg class="icon"><use href="#i-map"/></svg>总览</a>
       <a href="#flights"><svg class="icon"><use href="#i-plane"/></svg>航班</a>
       <a href="#hotels"><svg class="icon"><use href="#i-bed"/></svg>酒店</a>
@@ -1413,32 +1423,6 @@ html[data-mode="night"] .all-done-note b{color:#ff8cb8}
       <a href="#tips"><svg class="icon"><use href="#i-spark"/></svg>贴士</a>
     </div>
   </nav>
-
-  <section id="weather">
-    <div class="section-head">
-      <div class="section-title-wrap"><div class="kicker">出行看天</div><h2>今日 · 明日天气</h2></div>
-      <div class="section-icon"><svg class="icon"><use href="#i-sun"/></svg></div>
-    </div>
-    <p class="section-note">出发返程的深圳，以及昆明、丽江、香格里拉三地，今天和明天的天气一眼看清。</p>
-    <div class="weather-grid">
-      <article class="card weather-card" data-lat="22.5431" data-lon="114.0579">
-        <div class="weather-city"><h3>深圳</h3><span class="weather-en">Shenzhen</span></div>
-        <div class="weather-list"><p class="weather-state">正在看天 ☁️</p></div>
-      </article>
-      <article class="card weather-card" data-lat="25.0389" data-lon="102.7183">
-        <div class="weather-city"><h3>昆明</h3><span class="weather-en">Kunming</span></div>
-        <div class="weather-list"><p class="weather-state">正在看天 ☁️</p></div>
-      </article>
-      <article class="card weather-card" data-lat="26.8721" data-lon="100.2296">
-        <div class="weather-city"><h3>丽江</h3><span class="weather-en">Lijiang</span></div>
-        <div class="weather-list"><p class="weather-state">正在看天 ☁️</p></div>
-      </article>
-      <article class="card weather-card" data-lat="27.8251" data-lon="99.7080">
-        <div class="weather-city"><h3>香格里拉</h3><span class="weather-en">Shangri-La</span></div>
-        <div class="weather-list"><p class="weather-state">正在看天 ☁️</p></div>
-      </article>
-    </div>
-  </section>
 
   <section id="map">
     <div class="section-head">
@@ -1831,6 +1815,51 @@ tick();setInterval(tick,1000);
   }catch(e){}
 })();
 
+// Daily cards: auto-collapse days before today (Asia/Shanghai)
+(function foldDays(){
+  try{
+    const items=[...document.querySelectorAll('#days .timeline > .item')];
+    if(!items.length)return;
+    const now=new Date(Date.now()+8*3600000);
+    const todayUTC=Date.UTC(now.getUTCFullYear(),now.getUTCMonth(),now.getUTCDate());
+    let todayItem=null;
+    items.forEach(item=>{
+      const card=item.querySelector('.day-card');
+      const dateEl=item.querySelector('.rail-date b');
+      if(!card||!dateEl)return;
+      const parts=dateEl.textContent.trim().split('/').map(Number);
+      if(parts.length!==2||!parts[0]||!parts[1])return;
+      const dayUTC=Date.UTC(2026,parts[0]-1,parts[1]);
+      if(dayUTC===todayUTC)todayItem=item;
+      const body=document.createElement('div');
+      body.className='day-body';
+      [...card.children].forEach(child=>{
+        if(child.matches('.day-tags,h3,.day-toggle'))return;
+        body.appendChild(child);
+      });
+      card.appendChild(body);
+      const btn=document.createElement('button');
+      btn.type='button';
+      btn.className='day-toggle';
+      btn.innerHTML='<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
+      card.appendChild(btn);
+      const setCollapsed=next=>{
+        card.classList.toggle('is-collapsed',next);
+        btn.setAttribute('aria-expanded',String(!next));
+        btn.setAttribute('aria-label',next?'展开当天行程':'折叠当天行程');
+      };
+      setCollapsed(dayUTC<todayUTC);
+      btn.addEventListener('click',()=>setCollapsed(!card.classList.contains('is-collapsed')));
+    });
+    if(todayItem&&(!location.hash||location.hash==='#days')){
+      requestAnimationFrame(()=>todayItem.scrollIntoView({block:'start'}));
+    }
+    document.querySelectorAll('a[href="#days"]').forEach(link=>{
+      link.addEventListener('click',()=>setTimeout(()=>{if(todayItem)todayItem.scrollIntoView({block:'start'})},0));
+    });
+  }catch(e){}
+})();
+
 // Mobile-friendly checklist persistence
 const TODO_KEY='yunnan-trip-2026-checklist-v2';
 const todoInputs=[...document.querySelectorAll('[data-todo]')];
@@ -1887,70 +1916,6 @@ function celebrateAll(){
   document.querySelector('.todo-card').appendChild(note);
 }
 
-// Today / tomorrow weather (Open-Meteo, no API key)
-function wmoInfo(code){
-  if(code===0)return{ico:"☀️",text:"晴"};
-  if(code===1||code===2)return{ico:"⛅",text:code===1?"大致晴":"晴间多云"};
-  if(code===3)return{ico:"☁️",text:"阴"};
-  if(code===45||code===48)return{ico:"🌫️",text:"雾"};
-  if(code>=51&&code<=57)return{ico:"🌦️",text:"毛毛雨"};
-  if(code>=61&&code<=67)return{ico:"🌧️",text:"雨"};
-  if(code>=71&&code<=77)return{ico:"🌨️",text:"雪"};
-  if(code>=80&&code<=82)return{ico:"🌦️",text:"阵雨"};
-  if(code>=85&&code<=86)return{ico:"🌨️",text:"阵雪"};
-  return{ico:"⛈️",text:"雷雨"};
-}
-function loadWeather(card,attempt=0){
-  const list=card.querySelector(".weather-list");
-  const ctrl=new AbortController();
-  const timer=setTimeout(()=>ctrl.abort(),10000);
-  (async()=>{
-    try{
-      const url=`https://api.open-meteo.com/v1/forecast?latitude=${card.dataset.lat}&longitude=${card.dataset.lon}&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Asia%2FShanghai&forecast_days=2`;
-      const res=await fetch(url,{signal:ctrl.signal,headers:{Accept:"application/json"}});
-      if(!res.ok)throw new Error(res.status);
-      const data=await res.json();
-      if(!data.daily)throw new Error("empty");
-      const cell=(i)=>{
-        const w=wmoInfo(data.daily.weather_code[i]);
-        const lo=Math.round(data.daily.temperature_2m_min[i]);
-        const hi=Math.round(data.daily.temperature_2m_max[i]);
-        const [y,m,day]=data.daily.time[i].split("-").map(Number);
-        const date=`${m}/${day}`;
-        return `
-          <span class="w-when${i===0?" is-today":""}">${i===0?"今天":"明天"}<small>${date}</small></span>
-          <span class="w-ico" aria-hidden="true">${w.ico}</span>
-          <span class="w-info"><b>${hi}°<small>/${lo}°</small></b></span>`;
-      };
-      const w0=wmoInfo(data.daily.weather_code[0]);
-      const w1=wmoInfo(data.daily.weather_code[1]);
-      const lo0=Math.round(data.daily.temperature_2m_min[0]);
-      const hi0=Math.round(data.daily.temperature_2m_max[0]);
-      const lo1=Math.round(data.daily.temperature_2m_min[1]);
-      const hi1=Math.round(data.daily.temperature_2m_max[1]);
-      const cityName=card.querySelector("h3")?card.querySelector("h3").textContent:"";
-      const label=`${cityName}：今天${w0.text}${lo0}~${hi0}°C，明天${w1.text}${lo1}~${hi1}°C`;
-      list.innerHTML=`<div class="weather-row weather-row-compact" aria-label="${label}">${cell(0)}<span class="w-arrow" aria-hidden="true">→</span>${cell(1)}</div>`;
-    }catch(err){
-      if(attempt<2){
-        list.innerHTML='<p class="weather-state">天气网络打了个盹，正在自动重试…</p>';
-        setTimeout(()=>loadWeather(card,attempt+1),900*(attempt+1));
-      }else{
-        list.innerHTML='<p class="weather-state">天气数据暂时没拿到 ☁️<br><button class="weather-retry" type="button">再试一次</button></p>';
-      }
-    }finally{
-      clearTimeout(timer);
-    }
-  })();
-}
-document.querySelectorAll(".weather-card").forEach((card,i)=>setTimeout(()=>loadWeather(card),i*260));
-document.addEventListener("click",e=>{
-  const btn=e.target.closest(".weather-retry");
-  if(btn){
-    const card=btn.closest(".weather-card");
-    if(card)loadWeather(card);
-  }
-});
 const SYNC_KEY='yunnan-trip-2026-shared-v1';
 let pending={},syncBusy=false;
 try{
