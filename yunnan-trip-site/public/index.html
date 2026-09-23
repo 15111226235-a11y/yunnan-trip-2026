@@ -1182,10 +1182,17 @@ html[data-mode="night"] .weather-row-compact .w-info b small{color:#c39cb4}
 .day-plan li.is-flight .plan-time{color:#7b4bb0}
 .day-plan li.is-flight p{color:#7348a3}
 .day-plan li.is-flight:before{border-color:#9d6fd0;box-shadow:0 0 0 2px rgba(157,111,208,.14)}
+.day-plan li.is-train,.day-plan li.is-flight{padding:8px 12px 9px 28px;border-radius:14px;margin:4px 0 6px}
+.day-plan li.is-train{background:linear-gradient(120deg,rgba(61,146,179,.14),rgba(61,146,179,.06))}
+.day-plan li.is-flight{background:linear-gradient(120deg,rgba(157,111,208,.14),rgba(157,111,208,.06))}
+.day-plan li.is-train:before,.day-plan li.is-flight:before{left:10px;top:16px}
+.day-plan li.is-train:not(:last-child):after,.day-plan li.is-flight:not(:last-child):after{display:none}
 html[data-mode="night"] .day-plan li.is-train .plan-time{color:#8fd7ef}
 html[data-mode="night"] .day-plan li.is-train p{color:#b4dcec}
 html[data-mode="night"] .day-plan li.is-flight .plan-time{color:#d3b4f7}
 html[data-mode="night"] .day-plan li.is-flight p{color:#dcc6f8}
+html[data-mode="night"] .day-plan li.is-train{background:linear-gradient(120deg,rgba(143,215,239,.16),rgba(143,215,239,.07))}
+html[data-mode="night"] .day-plan li.is-flight{background:linear-gradient(120deg,rgba(211,180,247,.16),rgba(211,180,247,.07))}
 .timeline .item{scroll-margin-top:100px}
 .day-card h3{padding-right:42px}
 .day-toggle{position:absolute;top:10px;right:10px;z-index:3;display:grid;place-items:center;width:34px;height:34px;padding:0;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--muted);cursor:pointer;transition:background .2s ease,border-color .2s ease,transform .2s ease}
@@ -1574,11 +1581,9 @@ html[data-mode="night"] .all-done-note b{color:#ff8cb8}
           <div class="day-tags"><span class="tag">航班</span><span class="tag">昆明</span></div>
           <h3>深圳 → 昆明 · 入住</h3>
           <ol class="day-plan">
-            <li class="is-flight"><span class="plan-time">09:35</span><p>抵达昆明长水，先到酒店寄存行李</p></li>
-            <li><span class="plan-time">15:30</span><p>昆明老街：钱王街 → 文明街 → 光华街</p></li>
-            <li><span class="plan-time">17:30</span><p>上坐·云南传统过桥米线（顺城店）：五华区顺城购物中心 K 座 4 楼 C4-01A，晚市 17:30 开，建议提前取号</p></li>
-            <li><span class="plan-time">18:45</span><p>打车去斗南花市（约 30–40 分钟）</p></li>
-            <li><span class="plan-time">19:30</span><p>斗南花市：白天零售先逛逛，最热闹的夜场约 20:40 才开市，想买花拍照可顺手带一小束</p></li>
+            <li class="is-flight"><span class="plan-time">09:35</span><p>抵达昆明长水，先到酒店寄存行李（HU7767 07:25–09:35）</p></li>
+            <li><span class="plan-time">15:30</span><p>昆明老街，17:30 上坐过桥米线（顺城店）：先取号再逛</p></li>
+            <li><span class="plan-time">19:30</span><p>斗南花市：白天零售 + 20:40 后夜场</p></li>
           </ol>
           <p class="mini">🍜 上坐顺城店离昆明老街/南屏街步行约 10 分钟；晚市 17:30 开始，饭点排队较久，建议 17:20 前到取号。若想中午吃，午市 11:00–15:00。</p>
           <div class="day-actions"><a class="navbtn" href="https://uri.amap.com/search?keyword=%E5%85%A8%E5%AD%A3%E6%98%86%E6%98%8E%E7%81%AB%E8%BD%A6%E7%AB%99%E5%8C%97%E5%B9%BF%E5%9C%BA%E9%85%92%E5%BA%97&city=%E6%98%86%E6%98%8E&callnative=1" target="_blank" rel="noopener"><svg class="icon"><use href="#i-pin"/></svg>导航酒店</a><a class="navbtn" href="https://uri.amap.com/search?keyword=%E4%B8%8A%E5%9D%90%E9%A1%BA%E5%9F%8E%E8%B4%AD%E7%89%A9%E4%B8%AD%E5%BF%83&city=%E6%98%86%E6%98%8E&callnative=1" target="_blank" rel="noopener"><svg class="icon"><use href="#i-pin"/></svg>导航上坐米线</a></div>
@@ -1591,12 +1596,9 @@ html[data-mode="night"] .all-done-note b{color:#ff8cb8}
           <div class="day-tags"><span class="tag">动车 C446</span><span class="tag">中秋</span><span class="tag">忠义市场</span></div>
           <h3>昆明 → 丽江</h3>
           <ol class="day-plan">
-            <li class="is-train"><span class="plan-time">07:20</span><p>起床、早餐、退房；酒店就在昆明站北广场，步行或打车去昆明站</p></li>
-            <li class="is-train"><span class="plan-time">07:50</span><p>昆明站进站检票，建议提前 30–40 分钟到</p></li>
-            <li class="is-train"><span class="plan-time">08:29</span><p>C446 昆明 → 丽江，12:27 到丽江站</p></li>
-            <li class="is-train"><span class="plan-time">13:00</span><p>到丽江站后打车/客栈接站去甜蜜八月（约 20–30 分钟），办理入住、午饭</p></li>
-            <li><span class="plan-time">15:00</span><p>客栈休整或古城随意走，当天不排硬景点</p></li>
-            <li><span class="plan-time">晚上</span><p>忠义市场觅食（客栈步行 1–3 分钟）：丽江粑粑、鸡豆凉粉、烤乳扇、烤洋芋、酸野水果、腊排骨/菌子；吃完再进古城散步</p></li>
+            <li class="is-train"><span class="plan-time">08:29</span><p>C446 昆明 → 丽江，12:27 到丽江站（建议 07:50 前到昆明站）</p></li>
+            <li><span class="plan-time">13:00</span><p>到甜蜜八月客栈入住、午饭</p></li>
+            <li><span class="plan-time">晚上</span><p>忠义市场觅食 + 古城散步</p></li>
           </ol>
           <p class="mini">🚄 C446 · 08:29 昆明站 → 12:27 丽江站。因发车早，原计划翠湖公园/黄公东街从 9/26 移除，想补可考虑 9/25。</p>
           <p class="mini">🍢 夜市 18:00–21:00 最热闹；先看明码标价再买，水果和菌子按需称重。早上也有早点摊，想吃本地早餐可以再来一次。</p>
@@ -1610,11 +1612,11 @@ html[data-mode="night"] .all-done-note b{color:#ff8cb8}
           <div class="day-tags"><span class="tag">丽江</span><span class="tag">中秋</span></div>
           <h3>丽江古城 · 闲逛拍照</h3>
           <ol class="day-plan">
-            <li><span class="plan-time">08:30</span><p>黑龙潭公园：池水与古建，天气好可拍雪山倒影（散客目前需验约 50 元古维费，出发前确认）</p></li>
-            <li><span class="plan-time">10:30</span><p>回古城午饭（可去忠义市场吃米线/小吃）、休息</p></li>
-            <li><span class="plan-time">15:00</span><p>木府周边 → 四方街 → 大研花巷 → 大水车 → 五一街，一路拍照</p></li>
-            <li><span class="plan-time">18:00</span><p>晚饭：古城内随意吃；腊排骨安排到 10/1 束河店（若今晚就想吃，可打车去西安路437号阿婆吉来）</p></li>
+            <li><span class="plan-time">08:30</span><p>黑龙潭公园（天气好可拍雪山倒影）</p></li>
+            <li><span class="plan-time">15:00</span><p>丽江古城慢逛：木府周边 → 四方街 → 大研花巷 → 大水车 → 五一街</p></li>
+            <li><span class="plan-time">18:00</span><p>晚饭：古城内随意吃（腊排骨安排到 10/1 束河店）</p></li>
           </ol>
+          <p class="mini">🎫 黑龙潭散客目前需验约 50 元古维费，出发前确认。</p>
           <div class="day-actions"><a class="navbtn" href="https://uri.amap.com/search?keyword=%E9%BB%91%E9%BE%99%E6%BD%AD%E5%85%AC%E5%9B%AD&city=%E4%B8%BD%E6%B1%9F&callnative=1" target="_blank" rel="noopener"><svg class="icon"><use href="#i-pin"/></svg>导航黑龙潭</a></div>
         </article>
       </div>
@@ -1625,30 +1627,14 @@ html[data-mode="night"] .all-done-note b{color:#ff8cb8}
           <div class="day-tags"><span class="tag">丽江</span><span class="tag">雪山小火车</span><span class="tag must">需预约</span></div>
           <h3>玉龙雪山 · 冰川公园 + 蓝月谷</h3>
           <ol class="day-plan">
-            <li><span class="plan-time">06:20</span><p>起床、简单早餐；带氧气瓶、水、能量棒、充电宝、防晒和保暖外套</p></li>
-            <li><span class="plan-time">06:50</span><p>预约车出发去玉龙雪山新游客服务中心（白沙镇木都村玉甘路1号），车程约 40 分钟</p></li>
-            <li><span class="plan-time">07:30</span><p>抵达新游客中心，取/验景区门票、索道票和火车票；预留约 20–30 分钟安检候车</p></li>
-            <li><span class="plan-time">08:00</span><p>乘雪山小火车：游客中心站 → 玉龙雪山站（甘海子雪川游客港），约 40 分钟</p></li>
-            <li><span class="plan-time">08:40–09:20</span><p>抵达甘海子，先在草甸拍照、休息、适应海拔</p></li>
-            <li><span class="plan-time">09:20</span><p>坐景区环保大巴去冰川公园大索道下站（约 20 分钟）</p></li>
-            <li><span class="plan-time">09:40</span><p>抵达大索道下站，排队并吸氧；10:00–10:30 按预约时段检票（不能提前进）</p></li>
-            <li><span class="plan-time">10:45</span><p>乘大索道约 8 分钟到 4506 米平台，走木栈道到 4680 米石碑；走走歇歇，注意心率</p></li>
-            <li><span class="plan-time">12:00–12:30</span><p>索道下山，返回索道下站；换环保大巴去蓝月谷（约 20 分钟）</p></li>
-            <li><span class="plan-time">13:00</span><p>蓝月谷休息区午饭：快餐、烤肉、红薯、玉米，顺便休息</p></li>
-            <li><span class="plan-time">13:40–15:40</span><p>蓝月谷 2 小时：水月阁 → 玉液湖 → 镜潭湖 → 蓝月湖 → 听涛湖（顺水流下坡省力）</p></li>
-            <li><span class="plan-time">15:40–16:00</span><p>按现场指示回水月阁（或听涛湖站点）上环保大巴，返回雪川游客港（约 20–30 分钟）</p></li>
-            <li><span class="plan-time">16:20 左右</span><p>雪川游客港乘雪山小火车返程（不限时间，坐最近一班；满员就等下一班；建议 16:40 前离开）</p></li>
-            <li><span class="plan-time">17:00 左右</span><p>回到新游客服务中心，打车回丽江古城/客栈（约 40 分钟）</p></li>
-            <li><span class="plan-time">17:50 左右</span><p>回客栈短暂休息、换衣服，准备出门吃烧烤</p></li>
-            <li><span class="plan-time">18:20</span><p>打车去象山街俄古罗中段11号：俄古罗限量版烧烤（约 10–15 分钟）</p></li>
-            <li><span class="plan-time">18:30–20:00</span><p>撸串：烤茄子、鸡脚、猪蹄、烧饵块等；限量食材去晚可能没有</p></li>
-            <li><span class="plan-time">20:30</span><p>回客栈休息，明天 9/29 转场香格里拉</p></li>
+            <li><span class="plan-time">06:50</span><p>出发去玉龙雪山新游客中心，08:00 坐雪山小火车进山</p></li>
+            <li><span class="plan-time">10:00–10:30</span><p>冰川公园大索道：约 10:45 上 4506 米平台，量力走到 4680 米石碑</p></li>
+            <li><span class="plan-time">13:40–15:40</span><p>蓝月谷：水月阁 → 玉液湖 → 镜潭湖 → 蓝月湖 → 听涛湖</p></li>
+            <li><span class="plan-time">16:20</span><p>雪川游客港坐小火车返程，回丽江古城</p></li>
+            <li><span class="plan-time">18:20</span><p>俄古罗限量版烧烤（象山街，限量食材去晚可能没有）</p></li>
           </ol>
-          <p class="mini">🚂 你的 8:00 小火车票时间不受限：早到可早坐、晚到也能坐。建议 07:30 前到新游客中心留足安检时间；返程 16:20 左右到雪川游客港即可。</p>
-          <p class="mini">🎫 大索道票 10:00–10:30 不能提前进，这是全天唯一硬时间。09:40 左右到大索道下站后原地休息、吸氧，10:00 再检票，不用赶。</p>
-          <p class="mini">🚌 环保车 20 元/人当日通乘，首班约 5:45–7:00（以现场为准）；甘海子 → 大索道下站约 20 分钟，索道下站 → 蓝月谷也约 20 分钟。</p>
-          <p class="mini">⚠️ 蓝月谷下午光线更好；4680 米量力而行，头痛、心慌、恶心时立即下撤。小火车虽不限时间，也建议 16:30 前离开雪川游客港，别太晚回古城。</p>
-          <p class="mini">🍢 俄古罗在象山市场附近的象山街俄古罗中段11号；360 地图目前标记“暂停营业”，老板也常临时不开门，务必出发前一天用大众点评/高德确认。若没开，备选象山市场或花马街一带其他烧烤。</p>
+          <p class="mini">🚂 08:00 小火车进山；大索道 10:00–10:30 不能提前进，09:40 左右到索道下站；环保车 20 元/人当日通乘。</p>
+          <p class="mini">⚠️ 4680 米量力而行；俄古罗地图标记暂停营业，出发前一天确认是否开门，没开就备选象山市场其他烧烤。</p>
           <div class="day-actions"><a class="navbtn" href="https://uri.amap.com/search?keyword=%E7%8E%89%E9%BE%99%E9%9B%AA%E5%B1%B1%E6%96%B0%E6%B8%B8%E5%AE%A2%E6%9C%8D%E5%8A%A1%E4%B8%AD%E5%BF%83&city=%E4%B8%BD%E6%B1%9F&callnative=1" target="_blank" rel="noopener"><svg class="icon"><use href="#i-pin"/></svg>导航新游客中心</a><a class="navbtn" href="https://uri.amap.com/search?keyword=%E4%BF%84%E5%8F%A4%E7%BD%97%E9%99%90%E9%87%8F%E7%89%88%E7%83%A7%E7%83%A4&city=%E4%B8%BD%E6%B1%9F&callnative=1" target="_blank" rel="noopener"><svg class="icon"><use href="#i-pin"/></svg>导航俄古罗</a><a class="navbtn" href="https://uri.amap.com/search?keyword=%E7%8E%89%E9%BE%99%E9%9B%AA%E5%B1%B1&city=%E4%B8%BD%E6%B1%9F&callnative=1" target="_blank" rel="noopener"><svg class="icon"><use href="#i-pin"/></svg>导航玉龙雪山</a></div>
         </article>
       </div>
@@ -1659,13 +1645,10 @@ html[data-mode="night"] .all-done-note b{color:#ff8cb8}
           <div class="day-tags"><span class="tag">转场</span><span class="tag">动车 C987</span><span class="tag">香格里拉</span></div>
           <h3>丽江 → 香格里拉</h3>
           <ol class="day-plan">
-            <li class="is-train"><span class="plan-time">10:30</span><p>退房、检查行李；打车去丽江站（约 20–30 分钟）</p></li>
-            <li class="is-train"><span class="plan-time">11:40</span><p>丽江站进站检票，建议提前 30 分钟到</p></li>
-            <li class="is-train"><span class="plan-time">12:05</span><p>C987 丽江 → 香格里拉，13:18 到香格里拉站</p></li>
-            <li class="is-train"><span class="plan-time">13:40</span><p>木言观阙接站、入住、午饭；刚到高海拔多休息</p></li>
-            <li><span class="plan-time">15:30</span><p>独克宗古城：小巷 → 四方街 → 月光广场 → 龟山公园大转经筒</p></li>
-            <li><span class="plan-time">17:30</span><p>再上龟山公园，看蓝调与亮灯</p></li>
-            <li><span class="plan-time">晚上</span><p>可选唐卡体验（约 1.5–2 小时）或月光广场闲逛</p></li>
+            <li class="is-train"><span class="plan-time">12:05</span><p>C987 丽江 → 香格里拉，13:18 到香格里拉站（建议 11:40 前到丽江站）</p></li>
+            <li><span class="plan-time">13:40</span><p>木言观阙接站、入住、午饭</p></li>
+            <li><span class="plan-time">15:30</span><p>独克宗古城 → 龟山公园大转经筒，17:30 前后看蓝调亮灯</p></li>
+            <li><span class="plan-time">晚上</span><p>可选唐卡体验或月光广场闲逛</p></li>
           </ol>
           <p class="mini">🚄 C987 · 12:05 丽江站 → 13:18 香格里拉站；到站后由木言观阙接站，建议提前和客栈确认接站时间。</p>
           <div class="day-actions"><a class="navbtn" href="https://uri.amap.com/search?keyword=%E9%A6%99%E6%A0%BC%E9%87%8C%E6%8B%89%E6%9C%A8%E8%A8%80%E8%A7%82%E9%98%99%E5%AE%A2%E6%A0%88%EF%BC%88%E7%8B%AC%E5%85%8B%E5%AE%97%E5%8F%A4%E5%9F%8E%E5%A4%A7%E4%BD%9B%E5%AF%BA%E8%BD%AC%E7%BB%8F%E7%AD%92%E5%BA%97%EF%BC%89&city=%E9%A6%99%E6%A0%BC%E9%87%8C%E6%8B%89&callnative=1" target="_blank" rel="noopener"><svg class="icon"><use href="#i-pin"/></svg>导航酒店</a></div>
@@ -1678,15 +1661,11 @@ html[data-mode="night"] .all-done-note b{color:#ff8cb8}
           <div class="day-tags"><span class="tag">香格里拉</span><span class="tag">租车</span></div>
           <h3>松赞林寺 + 自驾环纳帕海</h3>
           <ol class="day-plan">
-            <li><span class="plan-time">08:00</span><p>早餐，确认租车上门送取</p></li>
-            <li><span class="plan-time">08:30</span><p>自驾至松赞林景区停车场，换乘景区摆渡车</p></li>
-            <li><span class="plan-time">09:30</span><p>松赞林寺慢慢游览（寺内有台阶，放慢脚步）</p></li>
-            <li><span class="plan-time">11:30</span><p>午饭</p></li>
-            <li><span class="plan-time">13:00</span><p>自驾环纳帕海：导航「环湖路」顺时针环湖（免费），湖边自然停车点、经幡拍照，最多选一家咖啡馆</p></li>
+            <li><span class="plan-time">08:30</span><p>自驾去松赞林寺（换摆渡车，寺内慢慢走）</p></li>
+            <li><span class="plan-time">13:00</span><p>自驾环纳帕海：导航「环湖路」顺时针，湖边拍照</p></li>
             <li><span class="plan-time">18:00</span><p>回独克宗；晚上扎拉土司宴或普通藏餐</p></li>
           </ol>
-          <p class="mini">🎫 松赞林寺线上成人票约 90 元（含往返观光车与讲解），现场也可只买 55 元门票；自驾车停在游客中心停车场后换乘，寺内大殿不拍照。</p>
-          <p class="mini">⚠️ 环湖路免费，直接导航「环湖路」顺时针；路边“马场/收停车费”多为私人项目，不消费就礼貌走开。想拍寺院倒影可沿拉姆央措湖栈道走一段。租车细则见待办清单。</p>
+          <p class="mini">🎫 松赞林寺线上约 90 元（含摆渡车/讲解），也可现场买 55 元门票；环湖路免费，路边私人收费项目可不消费。</p>
           <div class="day-actions"><a class="navbtn" href="https://uri.amap.com/search?keyword=%E6%9D%BE%E8%B5%9E%E6%9E%97%E5%AF%BA&city=%E9%A6%99%E6%A0%BC%E9%87%8C%E6%8B%89&callnative=1" target="_blank" rel="noopener"><svg class="icon"><use href="#i-pin"/></svg>导航松赞林寺</a></div>
         </article>
       </div>
@@ -1697,19 +1676,12 @@ html[data-mode="night"] .all-done-note b{color:#ff8cb8}
           <div class="day-tags"><span class="tag">国庆</span><span class="tag">转场</span><span class="tag">动车 C984</span></div>
           <h3>香格里拉 → 束河 · 慢休</h3>
           <ol class="day-plan">
-            <li><span class="plan-time">08:00</span><p>早餐</p></li>
-            <li><span class="plan-time">08:30</span><p>独克宗最后一小圈 / 咖啡</p></li>
-            <li class="is-train"><span class="plan-time">10:30</span><p>回客栈拿行李、退房；木言观阙送站（约 11:00–11:20 到香格里拉站）</p></li>
-            <li class="is-train"><span class="plan-time">11:40</span><p>香格里拉站进站检票，建议提前 30 分钟到</p></li>
-            <li class="is-train"><span class="plan-time">12:00</span><p>C984 香格里拉 → 丽江，13:40 到丽江站</p></li>
-            <li class="is-train"><span class="plan-time">14:20</span><p>打车去束河入住（约 30 分钟），午饭</p></li>
-            <li><span class="plan-time">15:30</span><p>青龙桥 → 九鼎龙潭 → 四方街 → 咖啡 / 手工</p></li>
-            <li><span class="plan-time">18:00</span><p>阿婆吉来腊排骨（束河店）：东康小道东康六组44号，束河鼎业公司对面</p></li>
-            <li><span class="plan-time">晚上</span><p>20:00 前后到四方听音广场看纳西打跳（时间以现场为准）</p></li>
+            <li class="is-train"><span class="plan-time">12:00</span><p>C984 香格里拉 → 丽江，13:40 到丽江站（建议 11:40 前到香格里拉站）</p></li>
+            <li><span class="plan-time">14:20</span><p>到束河安宿入住、午饭</p></li>
+            <li><span class="plan-time">15:30</span><p>束河慢逛：青龙桥 → 九鼎龙潭 → 四方街</p></li>
+            <li><span class="plan-time">18:00</span><p>阿婆吉来腊排骨（束河店）→ 20:00 四方听音广场看打跳</p></li>
           </ol>
-          <p class="mini">🚄 C984 · 12:00 香格里拉站 → 13:40 丽江站；建议提前和木言观阙确认送站时间，11:40 前到香格里拉站。</p>
-          <p class="mini">⚠️ 10/1 为国庆首日客流较大；到丽江站后打车去束河约 30 分钟，束河内石板路拖行李不便，可请客栈到路口接。</p>
-          <p class="mini">🥘 腊排骨火锅分量大，两人点小锅加 1–2 个配菜即可；吃完步行或打车去四方听音广场看 20:00 打跳。</p>
+          <p class="mini">🚄 C984 建议 11:40 前到香格里拉站；10/1 客流大，束河石板路拖行李可请客栈到路口接。</p>
           <div class="day-actions"><a class="navbtn" href="https://uri.amap.com/search?keyword=%E4%B8%BD%E6%B1%9F%E5%AE%89%E5%AE%BF%E6%B0%B4%E6%9C%A8%E5%BA%A6%E5%81%87%E5%BA%AD%E9%99%A2&city=%E4%B8%BD%E6%B1%9F&callnative=1" target="_blank" rel="noopener"><svg class="icon"><use href="#i-pin"/></svg>导航束河客栈</a><a class="navbtn" href="https://uri.amap.com/search?keyword=%E9%98%BF%E5%A9%86%E5%90%89%E6%9D%A5%E8%85%8A%E6%8E%92%E9%AA%A8%E7%81%AB%E9%94%85%E6%9D%9F%E6%B2%B3%E5%BA%97&city=%E4%B8%BD%E6%B1%9F&callnative=1" target="_blank" rel="noopener"><svg class="icon"><use href="#i-pin"/></svg>导航阿婆吉来</a></div>
         </article>
       </div>
@@ -1720,16 +1692,11 @@ html[data-mode="night"] .all-done-note b{color:#ff8cb8}
           <div class="day-tags"><span class="tag">返程</span><span class="tag">咖啡</span></div>
           <h3>白沙古镇 + 束河 → 返深</h3>
           <ol class="day-plan">
-            <li><span class="plan-time">08:30</span><p>退房，行李寄存在束河酒店</p></li>
-            <li><span class="plan-time">09:00</span><p>打车到白沙古镇，先去云堤岸咖啡（玉龙雪山脚下）：喝咖啡、拍照，预留 1–1.5 小时</p></li>
-            <li><span class="plan-time">10:45</span><p>白沙古镇：牌坊、壁画周边、主街慢逛</p></li>
-            <li><span class="plan-time">12:30</span><p>返回束河，午饭 + 慢逛 / 纪念品</p></li>
-            <li><span class="plan-time">16:30</span><p>回酒店取行李</p></li>
-            <li class="is-flight"><span class="plan-time">17:30</span><p>出发丽江三义机场（约 38 公里 / 50 分钟，打车约 100–130 元），预留国庆堵车与托运安检</p></li>
-            <li class="is-flight"><span class="plan-time">22:00</span><p>吉祥 HO1946 起飞，次日 00:30 抵深圳</p></li>
+            <li><span class="plan-time">09:00</span><p>白沙古镇 + 云堤岸咖啡（喝咖啡、拍照，预留 1–1.5 小时）</p></li>
+            <li><span class="plan-time">12:30</span><p>回束河午饭、慢逛、取行李</p></li>
+            <li class="is-flight"><span class="plan-time">17:30</span><p>出发丽江三义机场，22:00 HO1946 起飞（19:00–19:30 前到机场）</p></li>
           </ol>
-          <p class="mini">☕ 云堤岸在白沙镇街尾一组跑马娱乐场旁，从束河打车约 15–20 分钟；建议早到，雪山视野通常更清楚，出发前用高德确认营业时间。</p>
-          <p class="mini">⚠️ 国庆返程客流大，建议 19:00—19:30 前抵达丽江三义机场。</p>
+          <p class="mini">☕ 云堤岸在白沙镇街尾一组跑马娱乐场旁，从束河打车约 15–20 分钟；出发前确认营业时间。</p>
           <div class="day-actions"><a class="navbtn" href="https://uri.amap.com/search?keyword=%E4%BA%91%E5%A0%A4%E5%B2%B8%E5%92%96%E5%95%A1&city=%E4%B8%BD%E6%B1%9F&callnative=1" target="_blank" rel="noopener"><svg class="icon"><use href="#i-pin"/></svg>导航云堤岸</a><a class="navbtn" href="https://uri.amap.com/search?keyword=%E4%B8%BD%E6%B1%9F%E4%B8%89%E4%B9%89%E6%9C%BA%E5%9C%BA&city=%E4%B8%BD%E6%B1%9F&callnative=1" target="_blank" rel="noopener"><svg class="icon"><use href="#i-pin"/></svg>导航机场</a></div>
         </article>
       </div>
@@ -1744,14 +1711,13 @@ html[data-mode="night"] .all-done-note b{color:#ff8cb8}
     <p class="section-note">所有访客共用一份清单，勾选自动同步，无需登录。</p>
     <p class="section-note" id="syncStatus" role="status" aria-live="polite">正在加载共享清单…</p>
     <div class="card todo-card">
-      <div class="todo-progress"><div class="progress-copy"><b id="todoDone">0</b> / <span id="todoTotal">8</span> 已完成</div><div class="progress-track"><div class="progress-bar" id="todoProgress"></div></div></div>
+      <div class="todo-progress"><div class="progress-copy"><b id="todoDone">0</b> / <span id="todoTotal">7</span> 已完成</div><div class="progress-track"><div class="progress-bar" id="todoProgress"></div></div></div>
       <div class="todo-list">
         <label class="todo-item"><input type="checkbox" data-todo="train-0926"><span><b>9/26 C446</b> 08:29 昆明 → 丽江 已购；出发前核对昆明站进站与行李</span></label>
         <label class="todo-item"><input type="checkbox" data-todo="yulong-0928"><span><b>9/21 晚 20:00</b> 抢玉龙雪山 <b>9/28 冰川公园大索道</b>（小程序「丽江旅游集团」，实名＋人脸，优先上午时段）</span></label>
         <label class="todo-item"><input type="checkbox" data-todo="shangri-0930"><span>确认松赞林寺 9/30 门票与摆渡车（线上约 90 元 / 现场约 55 元门票），纳帕海导航「环湖路」顺时针</span></label>
         <label class="todo-item"><input type="checkbox" data-todo="rental-0930"><span>确认 9/30 香格里拉租车：送取车、保险/油量、停车费/划痕责任、第二驾驶人、ETC/备胎</span></label>
         <label class="todo-item"><input type="checkbox" data-todo="transfer"><span><b>9/29 C987</b> 12:05 丽江 → 香格里拉；<b>10/1 C984</b> 12:00 香格里拉 → 丽江 均已购；确认木言观阙接站/送站时间</span></label>
-        <label class="todo-item"><input type="checkbox" data-todo="hotel-phone"><span>补齐各酒店官方/订单电话</span></label>
         <label class="todo-item"><input type="checkbox" data-todo="holiday-check"><span>临近出发核对中秋、国庆期间景区预约与交通管控（含黑龙潭古维费查验口径）</span></label>
         <label class="todo-item"><input type="checkbox" data-todo="food-check"><span>9/28 前确认俄古罗限量版烧烤是否营业（地图标记暂停营业）；过桥米线已定为上坐顺城店</span></label>
       </div>
