@@ -1185,10 +1185,12 @@ html[data-mode="night"] .weather-row-compact .w-info b small{color:#c39cb4}
 .sticky-note summary:focus-visible{outline:2px solid #c98f35;outline-offset:2px;border-radius:6px}
 .sticky-note-body{padding:0 11px 10px}
 .sticky-note[open]{width:210px}
+.sticky-note-print{background-color:#fff4d6;background-image:radial-gradient(rgba(222,150,88,.20) 1.5px,transparent 1.7px),radial-gradient(rgba(236,125,152,.18) 1.5px,transparent 1.7px);background-size:18px 18px,20px 20px;background-position:0 0,9px 10px}
 .sticky-note-wide{float:none;width:auto;max-width:520px;margin:10px 0 14px;transform:none}
 html[data-mode="night"] .sticky-note{background:linear-gradient(180deg,#4a3a22,#382a1a);border-color:#8a6a3a;color:#f2ddb4;box-shadow:0 8px 18px rgba(0,0,0,.32)}
 html[data-mode="night"] .sticky-note summary{color:#f7d99a}
 html[data-mode="night"] .sticky-note:before{background:rgba(255,255,255,.14)}
+html[data-mode="night"] .sticky-note-print{background-color:#46351f;background-image:radial-gradient(rgba(255,205,135,.16) 1.5px,transparent 1.7px),radial-gradient(rgba(255,140,180,.14) 1.5px,transparent 1.7px)}
 @media(max-width:760px){.sticky-note{float:none;width:auto;margin:8px 0 10px;transform:none}.sticky-note[open]{width:auto}}
 .day-plan li.is-train .plan-time{color:#1f6f8f}
 .day-plan li.is-train p{color:#2c6b85}
@@ -1607,8 +1609,8 @@ html[data-mode="night"] .all-done-note b{color:#ff8cb8}
     </div>
     <p class="section-note">行程卡片只突出当天主线；蓝绿色为高铁/动车，紫色为航班。需要导航的地点，通过卡片下方按钮直达高德查看。</p>
     <details class="sticky-note sticky-note-wide">
-      <summary>🍲 朋友的美食地图（点开）</summary>
-      <div class="sticky-note-body">弥勒吃菌锅；大理和丽江偏贵、品类少；香格里拉吃牦牛锅；泸沽湖吃大鱼锅。这次能对上的是香格里拉牦牛锅。</div>
+      <summary>🍲 美食备选清单（点开 · 仅参考）</summary>
+      <div class="sticky-note-body">先存着参考：弥勒吃菌锅；大理、丽江偏贵且品类少；香格里拉吃牦牛锅；泸沽湖吃大鱼锅。这次能直接对上的是香格里拉牦牛锅。</div>
     </details>
 
     <div class="timeline">
@@ -1617,9 +1619,9 @@ html[data-mode="night"] .all-done-note b{color:#ff8cb8}
         <article class="card day-card">
           <div class="day-tags"><span class="tag">航班</span><span class="tag">昆明</span></div>
           <h3>深圳 → 昆明 · 入住</h3>
-          <details class="sticky-note">
-            <summary>🧋 昆明加餐（点开）</summary>
-            <div class="sticky-note-body">象子茶铺（南屏街）：黄油红糖普洱（不另外加糖、温热）、牛油果酸奶巴旦木。<br>太小食堂（南强街店）：云南家常菜，就在昆明老街旁；适合 9/25 午饭，或上坐排队太久时换这家。</div>
+          <details class="sticky-note sticky-note-print">
+            <summary>🍙 觅食小册（点开）</summary>
+            <div class="sticky-note-body">象子茶铺（南屏街）· 黄油红糖普洱（不另外加糖、温热）、牛油果酸奶巴旦木。<br>太小食堂（南强街店）· 云南家常菜，就在昆明老街旁；适合 9/25 午饭，或上坐排队太久时换这家。</div>
           </details>
           <ol class="day-plan">
             <li class="is-flight"><span class="plan-time">09:35</span><p>抵达昆明长水，先到酒店寄存行李（HU7767 07:25–09:35）</p></li>
