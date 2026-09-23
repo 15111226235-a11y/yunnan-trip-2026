@@ -1349,6 +1349,49 @@ html[data-mode="night"] .all-done-note b{color:#ff8cb8}
 #transport .transport-sub{margin:14px 2px 8px;font-size:14px}
 @media(max-width:700px){.timeline .item{grid-template-columns:44px minmax(0,1fr);gap:8px}}
 @media(min-width:900px){#transport .grid-rail{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* 可爱手账风 */
+body{background:radial-gradient(rgba(255,255,255,.45) 1.2px,transparent 1.3px) 0 0/20px 20px,radial-gradient(rgba(255,255,255,.3) 1.2px,transparent 1.3px) 10px 10px/22px 22px,radial-gradient(circle at 8% 2%,rgba(255,179,206,.24),transparent 24%),radial-gradient(circle at 96% 8%,rgba(185,215,255,.16),transparent 20%),radial-gradient(circle at 76% 98%,rgba(255,213,180,.14),transparent 26%),var(--bg)}
+.card{background:rgba(255,254,251,.96);border-radius:24px 17px 26px 15px / 16px 24px 15px 27px;box-shadow:0 12px 26px rgba(210,130,170,.10),0 2px 0 rgba(255,255,255,.7) inset}
+.overview-map{border-radius:28px 20px 30px 18px / 20px 28px 18px 30px}
+.booking-card,.tip-card,.todo-card{border-radius:22px 15px 24px 14px / 15px 22px 14px 25px}
+.tabs a,.mode-btn,.navbtn,.map-toggle,.day-toggle{border-radius:999px}
+.navbtn{background:linear-gradient(135deg,#ffe9f2,#ffd3e4);border:1.5px solid #ffc0d5;box-shadow:0 4px 10px rgba(214,82,132,.10)}
+.navbtn:hover{transform:translateY(-2px) scale(1.02)}
+.navbtn:active{transform:scale(.96)}
+.tabs a{background:#fff7fa;border:1.5px solid #ffd5e4;box-shadow:0 4px 10px rgba(214,82,132,.08)}
+.tabs a:hover{transform:translateY(-1px)}
+.section-icon{transform:rotate(-4deg);box-shadow:0 6px 14px rgba(190,80,122,.10)}
+.day-toggle{background:#fff;border:1.5px dashed #f3b6cc;color:#d2558b}
+.day-toggle:hover{transform:rotate(-8deg) scale(1.05);background:#fff4f9}
+.day-card:hover{transform:translateY(-2px)}
+.sticky-note{position:relative;float:right;width:172px;margin:0 0 12px 12px;padding:0;border:2px solid rgba(255,255,255,.55);border-radius:20px 10px 23px 9px / 10px 21px 9px 24px;background:var(--sticky-bg,#fff4d6);color:#6f4f28;font-size:11px;line-height:1.55;box-shadow:0 12px 22px rgba(200,120,80,.16),0 0 0 1px rgba(255,255,255,.25) inset;transform:rotate(.9deg)}
+.sticky-note:before{content:"";position:absolute;top:-10px;left:50%;width:58px;height:17px;transform:translateX(-50%) rotate(-4deg);background:repeating-linear-gradient(45deg,rgba(255,255,255,.6) 0 8px,rgba(255,214,235,.6) 8px 16px);border-radius:4px;box-shadow:0 2px 5px rgba(0,0,0,.10)}
+.sticky-note summary{cursor:pointer;list-style:none;padding:11px 13px 7px;font-size:11px;font-weight:900;color:inherit}
+.sticky-note summary::-webkit-details-marker{display:none}
+.sticky-note summary:before{content:"▸ ";display:inline-block;transition:transform .2s ease}
+.sticky-note[open] summary:before{transform:rotate(90deg)}
+.sticky-note summary:hover{transform:rotate(-2deg) scale(1.02)}
+.sticky-note summary:focus-visible{outline:2px dashed currentColor;outline-offset:2px}
+.sticky-note-body{padding:0 13px 11px;overflow:hidden}
+.sticky-note[open] .sticky-note-body{animation:stickyPop .24s cubic-bezier(.2,1.4,.4,1)}
+.sticky-note[open]{width:216px}
+.sticky-note-pink{--sticky-bg:#ffdbe9;color:#7c4566}
+.sticky-note-mint{--sticky-bg:#dcf3e5;color:#3f6a54}
+.sticky-note-blue{--sticky-bg:#dcecfb;color:#3c5d7a}
+.sticky-note-yellow{--sticky-bg:#fff2c2;color:#7a5a1f}
+.sticky-note-print{background-image:radial-gradient(rgba(255,255,255,.6) 1.3px,transparent 1.5px),radial-gradient(rgba(255,255,255,.38) 1.3px,transparent 1.5px);background-size:16px 16px,21px 21px;background-position:0 0,8px 9px}
+.sticky-note-wide{float:none;width:auto;max-width:560px;margin:12px 0 16px;transform:rotate(-.5deg)}
+@keyframes stickyPop{from{opacity:0;transform:translateY(-5px) scale(.95)}to{opacity:1;transform:none}}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.hero-art{animation:floaty 6s ease-in-out infinite}
+html[data-mode="night"] .sticky-note{background:var(--sticky-bg,#46351f);color:#f2ddb4;border-color:rgba(255,255,255,.16);box-shadow:0 12px 22px rgba(0,0,0,.35)}
+html[data-mode="night"] .sticky-note-pink{--sticky-bg:#4a2a38;color:#f2c6dd}
+html[data-mode="night"] .sticky-note-mint{--sticky-bg:#2c4036;color:#c9e8d4}
+html[data-mode="night"] .sticky-note-blue{--sticky-bg:#28394c;color:#c8dcf0}
+html[data-mode="night"] .sticky-note-yellow{--sticky-bg:#45371f;color:#f2dfae}
+@media(max-width:760px){.sticky-note{float:none;width:auto;margin:9px 0 11px;transform:none;border-radius:18px 10px 20px 9px / 10px 18px 9px 20px}.sticky-note[open]{width:auto}}
+@media(prefers-reduced-motion:reduce){.sticky-note[open] .sticky-note-body,.hero-art{animation:none}.sticky-note summary:hover,.tabs a:hover,.navbtn:hover,.day-toggle:hover{transform:none}}
 </style>
 </head>
 <body>
@@ -1608,7 +1651,7 @@ html[data-mode="night"] .all-done-note b{color:#ff8cb8}
       <div class="section-icon"><svg class="icon"><use href="#i-calendar"/></svg></div>
     </div>
     <p class="section-note">行程卡片只突出当天主线；蓝绿色为高铁/动车，紫色为航班。需要导航的地点，通过卡片下方按钮直达高德查看。</p>
-    <details class="sticky-note sticky-note-wide">
+    <details class="sticky-note sticky-note-wide sticky-note-yellow">
       <summary>🍲 美食备选清单（点开 · 仅参考）</summary>
       <div class="sticky-note-body">先存着参考：弥勒吃菌锅；大理、丽江偏贵且品类少；香格里拉吃牦牛锅；泸沽湖吃大鱼锅。这次能直接对上的是香格里拉牦牛锅。</div>
     </details>
@@ -1619,7 +1662,7 @@ html[data-mode="night"] .all-done-note b{color:#ff8cb8}
         <article class="card day-card">
           <div class="day-tags"><span class="tag">航班</span><span class="tag">昆明</span></div>
           <h3>深圳 → 昆明 · 入住</h3>
-          <details class="sticky-note sticky-note-print">
+          <details class="sticky-note sticky-note-print sticky-note-pink">
             <summary>🍙 觅食小册（点开）</summary>
             <div class="sticky-note-body">象子茶铺（南屏街）· 黄油红糖普洱（不另外加糖、温热）、牛油果酸奶巴旦木。<br>太小食堂（南强街店）· 云南家常菜，就在昆明老街旁；适合 9/25 午饭，或上坐排队太久时换这家。</div>
           </details>
@@ -1689,7 +1732,7 @@ html[data-mode="night"] .all-done-note b{color:#ff8cb8}
         <article class="card day-card">
           <div class="day-tags"><span class="tag">转场</span><span class="tag">动车 C987</span><span class="tag">香格里拉</span></div>
           <h3>丽江 → 香格里拉</h3>
-          <details class="sticky-note">
+          <details class="sticky-note sticky-note-mint">
             <summary>🥘 香格里拉牦牛锅（点开）</summary>
             <div class="sticky-note-body">朋友推荐吃牦牛锅，独克宗古城内选一家人多的即可；今晚或 9/30 晚都行。</div>
           </details>
@@ -2034,6 +2077,28 @@ persistSync();syncTodos();
 setInterval(()=>{if(!document.hidden)syncTodos()},15000);
 window.addEventListener('online',syncTodos);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)syncTodos()});
+</script>
+<script>
+(function(){
+  let ctx=null;
+  function pop(){
+    try{
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+      ctx=ctx||new (window.AudioContext||window.webkitAudioContext)();
+      if(ctx.state==='suspended')ctx.resume();
+      const o=ctx.createOscillator(),g=ctx.createGain();
+      o.type='sine';
+      o.frequency.setValueAtTime(520,ctx.currentTime);
+      o.frequency.exponentialRampToValueAtTime(760,ctx.currentTime+.07);
+      g.gain.setValueAtTime(.0001,ctx.currentTime);
+      g.gain.exponentialRampToValueAtTime(.06,ctx.currentTime+.012);
+      g.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+.12);
+      o.connect(g).connect(ctx.destination);
+      o.start();o.stop(ctx.currentTime+.13);
+    }catch(e){}
+  }
+  document.addEventListener('click',e=>{if(e.target.closest('.sticky-note summary'))pop();});
+})();
 </script>
 </body>
 </html>
